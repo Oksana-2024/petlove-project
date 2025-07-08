@@ -1,0 +1,93 @@
+@import "modern-normalize/modern-normalize.css";
+:root {
+  --font-manrope: "Manrope", sans-serif;
+  --main-color: #262626;
+  --second-color: #ffffff;
+  --gray-color: #909090;
+  --main-bg: #f6b83d;
+  --second-bg: #fff4df;
+  --dark-second-bg: #fbe7c1;
+  --border: #d6d6d6;
+  --red-icon: #f43f5e;
+  --red: #ef2447;
+  --green: #08aa83;
+  --blue: #54adff;
+  --yellow: #ffc531;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--main-color);
+  font-family: var(--font-manrope);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  outline: none;
+  font-family: inherit;
+}
