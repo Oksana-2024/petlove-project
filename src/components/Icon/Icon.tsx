@@ -7,7 +7,7 @@ type IconProps = {
 };
 
 const Icon = ({ name, size = 24, className }: IconProps) => (
-  <svg width={size} height={size} className={className} aria-hidden="true">
+  <svg width={size} height={size} className={className}>
     <use xlinkHref={`/sprite.svg#${name}`} />
   </svg>
 );
