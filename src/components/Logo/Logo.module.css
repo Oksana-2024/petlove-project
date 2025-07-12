@@ -1,0 +1,16 @@
+.logoLink {
+  display: flex;
+  flex-direction: row;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--second-theme-color);
+  gap: 1px;
+  align-items: center;
+}
+
+.iconLogo {
+  height: 17px;
+  fill: var(--fill-logo);
+}
