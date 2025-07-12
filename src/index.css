@@ -2,17 +2,55 @@
 :root {
   --font-manrope: "Manrope", sans-serif;
   --main-color: #262626;
-  --second-color: #ffffff;
+  --second-color: hsl(0, 0%, 100%);
+  --third-color: #f6b83d;
+  --accent-color: rgba(255, 255, 255, 0.4);
+  --link-color: #ffffff;
   --gray-color: #909090;
+  --color-logout: #f6b83d;
+  --bg-logout: #fff4df;
   --main-bg: #f6b83d;
   --second-bg: #fff4df;
+  --third-bg: #f9f9f9;
+  --modal-bg: #fff;
   --dark-second-bg: #fbe7c1;
   --border: #d6d6d6;
+  --border-link: rgba(38, 38, 38, 0.15);
+  --border-link-active: #f6b83d;
   --red-icon: #f43f5e;
-  --red: #ef2447;
+  --error: #ef2447;
   --green: #08aa83;
   --blue: #54adff;
   --yellow: #ffc531;
+  --transition: ease;
+}
+
+[data-theme="home"] {
+  --main-theme-bg: #f6b83d;
+  --second-theme-color: #ffffff;
+  --fill-logo: #ffffff;
+  --link-bg: #f6b83d;
+  --mobile-menu-bg: #fff;
+  --close-icon: #262626;
+  --border-link: transparent;
+  --navlink-active: #f6b83d;
+  --border-link-modal: rgba(38, 38, 38, 0.4);
+  --border-link-modal-active: #f6b83d;
+  --color-link-modal: #262626;
+}
+
+[data-theme="default"] {
+  --main-theme-bg: transparent;
+  --second-theme-color: #262626;
+  --fill-logo: #f6b83d;
+  --link-bg: transparent;
+  --mobile-menu-bg: #f6b83d;
+  --close-icon: #fff;
+  --border-link: rgba(255, 255, 255, 0.5);
+  --navlink-active: rgba(255, 255, 255, 0.5);
+  --border-link-modal: rgba(255, 255, 255, 0.15);
+  --border-link-modal-active: rgba(255, 255, 255, 0.5);
+  --color-link-modal: #fff;
 }
 
 @font-face {
@@ -49,6 +87,7 @@ body {
   padding: 0;
   color: var(--main-color);
   font-family: var(--font-manrope);
+  background-color: var(--third-bg);
 }
 
 h1,
