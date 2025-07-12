@@ -1,0 +1,73 @@
+/* overlay */
+.overlayBase {
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  z-index: 8;
+}
+
+.overlayAfterOpen {
+  opacity: 1;
+}
+
+.overlayBeforeClose {
+  opacity: 0;
+}
+
+/* modal */
+.modalBase {
+  background-color: var(--modal-bg);
+  padding: 39px 32px 40px;
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 300ms var(--transition);
+  position: relative;
+}
+
+.modalBase::-webkit-scrollbar {
+  width: 5px;
+}
+.modalBase::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 12px;
+}
+
+.modalBase::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: var(--badges-border);
+}
+
+.modalBase::-webkit-scrollbar-thumb:hover {
+  background: skyblue;
+}
+
+.modalAfterOpen {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modalBeforeClose {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.closeBtn {
+  background-color: transparent;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.closeIcon {
+  stroke: var(--black-icon);
+}
