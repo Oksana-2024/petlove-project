@@ -1,0 +1,37 @@
+.link {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--main-color);
+  border: 1px solid var(--border-link);
+  border-radius: 30px;
+  padding: 15px 20px;
+  width: 100%;
+  transform: border 300ms var(--transition);
+}
+
+.active {
+  border: 1px solid var(--border-link);
+}
+
+.linkModal {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.03em;
+  display: flex;
+  width: 120px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-link-modal);
+  border-radius: 30px;
+  color: var(--color-link-modal);
+}
+
+.activeModal {
+  border: 1px solid var(--border-link-modal-active);
+}
+
