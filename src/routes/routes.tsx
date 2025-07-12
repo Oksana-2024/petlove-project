@@ -10,7 +10,7 @@ const News = lazy(() => import("../pages/NewsPage/NewsPage"));
 const Notices = lazy(() => import("../pages/NoticesPage/NoticesPage"));
 const Friends = lazy(() => import("../pages/OurFriendsPage/OurFriendsPage"));
 const Profile = lazy(() => import("../pages/ProfilePage/ProfilePage"));
-const AddPet = lazy(() => import("../pages/AddPet/AddPet"));
+const AddPet = lazy(() => import("../pages/AddPetPage/AddPetPage"));
 const NotFound = lazy(() => import("../pages/NotFoundPage/NotFounPage"));
 
 const routes: RouteObject[] = [

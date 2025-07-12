@@ -1,0 +1,55 @@
+.page {
+  background-image: url("/main_m.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.mainPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 2dppx) {
+  .page {
+    background-image: url("/main_m@2x.webp");
+  }
+}
+
+.mainLogo {
+  fill: var(--main-bg);
+  width: 44px;
+  height: 44px;
+}
+.mainLink {
+  font-size: 50px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    background-image: url("/main_t.webp");
+  }
+  @media screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 2dppx) {
+    .page {
+      background-image: url("/main_t@2x.webp");
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  .page {
+    background-image: url("/main_d.webp");
+  }
+  @media screen and (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 2dppx) {
+    .page {
+      background-image: url("/main_d@2x.webp");
+    }
+  }
+}
