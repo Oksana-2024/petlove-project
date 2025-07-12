@@ -1,0 +1,43 @@
+.header {
+  padding-top: 10px;
+}
+
+.headerWrapper {
+  width: 100%;
+  background-color: var(--main-theme-bg);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+.menuBtn {
+  background-color: transparent;
+  width: 34px;
+  height: 34px;
+}
+
+.iconMenu {
+  fill: var(--second-theme-color);
+}
+
+.authMenuWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.userIcon {
+  fill: var(--main-theme-bg);
+}
+
+.profileBtn {
+  background-color: var(--second-color);
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+}
