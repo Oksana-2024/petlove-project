@@ -10,6 +10,7 @@ const RegisterPage = () => {
       <Container>
         {isMobile && (
           <img
+            className={s.imgCat}
             src="/cat_m.webp"
             alt="Cat"
             sizes="100vw"
@@ -18,6 +19,7 @@ const RegisterPage = () => {
         )}
         {isTablet && (
           <img
+            className={s.imgCat}
             src="/cat_t.webp"
             alt="Cat"
             sizes="100vw"
@@ -26,6 +28,7 @@ const RegisterPage = () => {
         )}
         {isDesktop && (
           <img
+            className={s.imgCat}
             src="/cat_d.webp"
             alt="Cat"
             sizes="592px"
