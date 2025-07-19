@@ -5,7 +5,7 @@ import routes from "../routes/routes";
 function App() {
   const routing = useRoutes(routes);
 
-  return <Suspense fallback={<div>Loading...</div>}>{routing}</Suspense>;
+  return <Suspense fallback={null}>{routing}</Suspense>;
 }
 
 export default App;

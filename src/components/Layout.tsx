@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Header from "./Header/Header";
 import { Outlet, useLocation } from "react-router-dom";
 import { ThemeProvider } from "../context/ThemeContext";
+import { ToastContainer } from "react-toastify";
 
 interface ILayoute {
   children?: ReactNode;
@@ -15,6 +16,7 @@ const Layout = ({ children }: ILayoute) => {
       <Header />
       <main>{children}</main>
       <Outlet />
+      <ToastContainer />
     </ThemeProvider>
   );
 };
