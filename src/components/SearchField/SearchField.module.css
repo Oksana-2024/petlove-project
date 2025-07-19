@@ -1,0 +1,42 @@
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  border: 1px solid var(--border-input);
+  border-radius: 30px;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.searchInput::placeholder {
+  color: var(--placeholder-color);
+}
+
+.serchBtn {
+  background-color: transparent;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.searchIcon {
+  stroke: var(--main-color);
+  fill: none;
+}
+
+.resetFormBtn {
+  background-color: transparent;
+  position: absolute;
+  top: 12px;
+  right: 40px;
+}
+
+.resetIcon {
+  stroke: var(--main-color);
+}
