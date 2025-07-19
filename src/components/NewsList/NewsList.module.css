@@ -1,0 +1,7 @@
+.list {
+  padding-top: 24px;
+  padding-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
