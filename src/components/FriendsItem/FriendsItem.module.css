@@ -1,0 +1,43 @@
+.addressBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.workDay {
+  border-radius: 30px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: var(--third-color);
+  background-color: var(--second-bg);
+  width: 90px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 194px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}

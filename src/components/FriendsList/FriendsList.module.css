@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.item {
+  background-color: var(--form-bg);
+  padding: 40px 25px 40px 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  position: relative;
+  width: 100%;
+}
