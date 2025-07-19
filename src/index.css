@@ -2,27 +2,35 @@
 :root {
   --font-manrope: "Manrope", sans-serif;
   --main-color: #262626;
-  --second-color: hsl(0, 0%, 100%);
+  --second-color: #fff;
   --third-color: #f6b83d;
   --accent-color: rgba(255, 255, 255, 0.4);
   --link-color: #ffffff;
   --gray-color: #909090;
   --color-logout: #f6b83d;
+  --input-color: rgba(38, 38, 38, 0.8);
+  --placeholder-color: rgba(38, 38, 38, 0.5);
   --bg-logout: #fff4df;
   --main-bg: #f6b83d;
   --second-bg: #fff4df;
   --third-bg: #f9f9f9;
   --modal-bg: #fff;
+  --form-bg: #fff;
   --dark-second-bg: #fbe7c1;
+  --cat-404-bg: rgba(255, 255, 255, 0.1);
   --border: #d6d6d6;
   --border-link: rgba(38, 38, 38, 0.15);
   --border-link-active: #f6b83d;
+  --border-input: rgba(38, 38, 38, 0.15);
+  --border-pagination: rgba(38, 38, 38, 0.2);
   --red-icon: #f43f5e;
   --error: #ef2447;
-  --green: #08aa83;
+  --success: #08aa83;
   --blue: #54adff;
   --yellow: #ffc531;
   --transition: ease;
+  --eye-icon-fill: #f6b83d;
+  --disabled: rgba(38, 38, 38, 0.05);
 }
 
 [data-theme="home"] {
@@ -128,5 +136,5 @@ img {
 input,
 textarea {
   outline: none;
-  font-family: inherit;
+  font-family: var(--font-manrope);
 }

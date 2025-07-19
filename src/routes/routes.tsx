@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import { type RouteObject } from "react-router-dom";
 import Layout from "../components/Layout";
+import MainPage from "../pages/MainPage/MainPage";
 
-const Main = lazy(() => import("../pages/MainPage/MainPage"));
 const Home = lazy(() => import("../pages/HomePage/HomePage"));
 const Register = lazy(() => import("../pages/RegisterPage/RegisterPage"));
 const Login = lazy(() => import("../pages/LoginPage/LoginPage"));
@@ -16,10 +16,10 @@ const NotFound = lazy(() => import("../pages/NotFoundPage/NotFounPage"));
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Main />,
+    element: <MainPage />,
   },
   {
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       { path: "/home", element: <Home /> },
       { path: "/register", element: <Register /> },
@@ -29,7 +29,7 @@ const routes: RouteObject[] = [
       { path: "/friends", element: <Friends /> },
       { path: "/profile", element: <Profile /> },
       { path: "/add-pet", element: <AddPet /> },
-      { path: "*", element: <NotFound /> }, 
+      { path: "*", element: <NotFound /> },
     ],
   },
 ];
