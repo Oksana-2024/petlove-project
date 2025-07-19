@@ -13,7 +13,23 @@ export interface INotices {
   popularity: number;
 }
 
-export type CategoryType = string[];
-export type GenderType = string[];
+export interface ICategoryOption {
+  label: string;
+  value: string;
+}
+export interface IGenderOption {
+  label: string;
+  value: string;
+}
+export interface ISpeciesOption {
+  label: string;
+  value: string;
+}
 
-export type SpeciesType = string[];
+export interface IQueryParams {
+  keyword: string;
+  category: string;
+  sex: string;
+  species: string;
+  locationId: string;
+}
