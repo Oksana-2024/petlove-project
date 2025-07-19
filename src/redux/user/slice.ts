@@ -52,10 +52,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: user,
   reducers: {
-    setComfirmLogout(state, action) {
-      state.isComfirmLogout = action.payload;
     },
-  },
 
   extraReducers: (builder) => {
     builder
@@ -127,5 +124,5 @@ const userSlice = createSlice({
 });
 
 const userReducer = userSlice.reducer;
-export const { setComfirmLogout } = userSlice.actions;
+
 export default userReducer;

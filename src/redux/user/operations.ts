@@ -3,10 +3,12 @@ import { useAxios } from "../../service/api";
 import { toast } from "react-toastify";
 import type { AxiosError } from "axios";
 import type { StoreType } from "../store";
+import type { RegisterCredentials } from "../../components/RegisterForm/RegisterForm";
+import type { ILoginForm } from "../../components/LoginForm/LoginForm";
 
 export const registerThunk = createAsyncThunk(
   "user/register",
-  async (credentials, thunkAPI) => {
+  async (credentials: RegisterCredentials, thunkAPI) => {
     try {
       const { data } = await useAxios().post("/users/signup", credentials);
       toast.success(`Welcome, ${data.name}!`);
@@ -36,7 +38,7 @@ export const registerThunk = createAsyncThunk(
 
 export const loginThunk = createAsyncThunk(
   "user/login",
-  async (credentials, thunkAPI) => {
+  async (credentials: ILoginForm, thunkAPI) => {
     try {
       const { data } = await useAxios().post("/users/signin", credentials);
       toast.success(`Welcome back, ${data.name}!`);
