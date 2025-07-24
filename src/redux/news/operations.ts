@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useAxios } from "../../service/api";
+import { createAxios } from "../../service/api";
 import type { AxiosError } from "axios";
 import type { StoreType } from "../store";
 
 export const getNewsThunk = createAsyncThunk("news", async (_, thunkAPI) => {
   try {
     const { page, query } = (thunkAPI.getState() as StoreType).news;
-    const { data } = await useAxios().get("/news", {
+    const { data } = await createAxios().get("/news", {
       params: { page: page, keyword: query, perPage: 6 },
     });
     return data;
@@ -28,7 +28,7 @@ export const getNewsThunk = createAsyncThunk("news", async (_, thunkAPI) => {
 export const loadMoreNews = createAsyncThunk("news", async (_, thunkApi) => {
   try {
     const { query, page } = (thunkApi.getState() as StoreType).news;
-    const { data } = await useAxios().get("/news", {
+    const { data } = await createAxios().get("/news", {
       params: {
         keyword: query,
         page: Number(page) + 1,

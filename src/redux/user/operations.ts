@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useAxios } from "../../service/api";
+import { createAxios } from "../../service/api";
 import { toast } from "react-toastify";
 import type { AxiosError } from "axios";
 import type { StoreType } from "../store";
@@ -10,7 +10,7 @@ export const registerThunk = createAsyncThunk(
   "user/register",
   async (credentials: RegisterCredentials, thunkAPI) => {
     try {
-      const { data } = await useAxios().post("/users/signup", credentials);
+      const { data } = await createAxios().post("/users/signup", credentials);
       toast.success(`Welcome, ${data.name}!`);
       return data;
     } catch (error) {
@@ -40,7 +40,7 @@ export const loginThunk = createAsyncThunk(
   "user/login",
   async (credentials: ILoginForm, thunkAPI) => {
     try {
-      const { data } = await useAxios().post("/users/signin", credentials);
+      const { data } = await createAxios().post("/users/signin", credentials);
       toast.success(`Welcome back, ${data.name}!`);
       return data;
     } catch (error) {
@@ -70,7 +70,7 @@ export const logoutUser = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { token } = (thunkApi.getState() as StoreType).user;
-      const { data } = await useAxios(token).post("/users/signout");
+      const { data } = await createAxios(token).post("/users/signout");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -97,7 +97,7 @@ export const currentUser = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { token } = (thunkApi.getState() as StoreType).user;
-      const { data } = await useAxios(token).get("/users/current");
+      const { data } = await createAxios(token).get("/users/current");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -123,7 +123,7 @@ export const getUser = createAsyncThunk("user/full", async (_, thunkApi) => {
   try {
     const state = thunkApi.getState() as StoreType;
     const { token } = state.user;
-    const { data } = await useAxios(token).get("/users/current/full");
+    const { data } = await createAxios(token).get("/users/current/full");
     return data;
   } catch (error) {
     const status = (error as AxiosError).status;
@@ -150,7 +150,7 @@ export const updateUser = createAsyncThunk(
     try {
       const state = thunkApi.getState() as StoreType;
       const { token } = state.user;
-      const { data } = await useAxios(token).patch(
+      const { data } = await createAxios(token).patch(
         "/users/current/edit",
         newUser
       );
@@ -179,7 +179,7 @@ export const updateUser = createAsyncThunk(
 export const addPets = createAsyncThunk("pets/add", async (pet, thunkApi) => {
   try {
     const token = (thunkApi.getState() as StoreType).user.token;
-    const { data } = await useAxios(token).post("/users/current/pets/add", pet);
+    const { data } = await createAxios(token).post("/users/current/pets/add", pet);
     return data;
   } catch (error) {
     const status = (error as AxiosError).status;

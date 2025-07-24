@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { useAxios } from "../../service/api";
+import { createAxios } from "../../service/api";
 import type { AxiosError } from "axios";
 
 export const getFriendsThunk = createAsyncThunk(
   "/friends",
   async (_, thunkAPI) => {
     try {
-      const { data } = await useAxios().get("/friends");
+      const { data } = await createAxios().get("/friends");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;

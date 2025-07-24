@@ -6,16 +6,18 @@
   --third-color: #f6b83d;
   --accent-color: rgba(255, 255, 255, 0.4);
   --link-color: #ffffff;
+  --notice-color: #2b2b2a;
   --gray-color: #909090;
   --color-logout: #f6b83d;
   --input-color: rgba(38, 38, 38, 0.8);
   --placeholder-color: rgba(38, 38, 38, 0.5);
-  --bg-logout: #fff4df;
   --main-bg: #f6b83d;
   --second-bg: #fff4df;
   --third-bg: #f9f9f9;
   --modal-bg: #fff;
   --form-bg: #fff;
+  --bg-logout: #fff4df;
+  --overlay-bg: rgba(38, 38, 38, 0.3);
   --dark-second-bg: #fbe7c1;
   --cat-404-bg: rgba(255, 255, 255, 0.1);
   --border: #d6d6d6;
@@ -31,6 +33,7 @@
   --transition: ease;
   --eye-icon-fill: #f6b83d;
   --disabled: rgba(38, 38, 38, 0.05);
+  --hover-btn: #f9b020;
 }
 
 [data-theme="home"] {
@@ -45,6 +48,8 @@
   --border-link-modal: rgba(38, 38, 38, 0.4);
   --border-link-modal-active: #f6b83d;
   --color-link-modal: #262626;
+  --icon-fill: #f6b83d;
+  --icon-wrapper: #fff;
 }
 
 [data-theme="default"] {
@@ -59,6 +64,8 @@
   --border-link-modal: rgba(255, 255, 255, 0.15);
   --border-link-modal-active: rgba(255, 255, 255, 0.5);
   --color-link-modal: #fff;
+  --icon-fill: #f6b83d;
+  --icon-wrapper: #fff4df;
 }
 
 @font-face {
@@ -137,4 +144,8 @@ input,
 textarea {
   outline: none;
   font-family: var(--font-manrope);
+}
+
+.no-scroll {
+  overflow: hidden;
 }
