@@ -1,0 +1,38 @@
+.selectWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.formWrapper {
+  background-color: var(--second-bg);
+  padding: 20px;
+  width: 100%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.searchIcon {
+  fill: none;
+  stroke: var(--main-color);
+}
+
+.searchField {
+  border: none;
+}
+
+.searchField::placeholder {
+  color: var(--main-color);
+}
+
+.radioWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}

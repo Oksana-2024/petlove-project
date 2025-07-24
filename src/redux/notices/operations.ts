@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { StoreType } from "../store";
-import { useAxios } from "../../service/api";
+import { createAxios } from "../../service/api";
 import type { AxiosError } from "axios";
 
 export const getNoticesThunk = createAsyncThunk(
@@ -8,7 +8,7 @@ export const getNoticesThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { page, queryParams } = (thunkAPI.getState() as StoreType).notices;
-      const { data } = await useAxios().get("/notices", {
+      const { data } = await createAxios().get("/notices", {
         params: {
           page: page,
           perPage: 6,
@@ -36,7 +36,7 @@ export const getCitiesThunk = createAsyncThunk(
   "cities",
   async (_, thunkAPI) => {
     try {
-      const { data } = await useAxios().get("/cities/locations");
+      const { data } = await createAxios().get("/cities/locations");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -58,7 +58,7 @@ export const getCategoryThunk = createAsyncThunk(
   "category",
   async (_, thunkAPI) => {
     try {
-      const { data } = await useAxios().get("/notices/categories");
+      const { data } = await createAxios().get("/notices/categories");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -80,7 +80,7 @@ export const getGenderThunk = createAsyncThunk(
   "gender",
   async (_, thunkAPI) => {
     try {
-      const { data } = await useAxios().get("/notices/sex");
+      const { data } = await createAxios().get("/notices/sex");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -100,7 +100,7 @@ export const getGenderThunk = createAsyncThunk(
 
 export const getTypeThunk = createAsyncThunk("type", async (_, thunkAPI) => {
   try {
-    const { data } = await useAxios().get("/notices/species");
+    const { data } = await createAxios().get("/notices/species");
     return data;
   } catch (error) {
     const status = (error as AxiosError).status;

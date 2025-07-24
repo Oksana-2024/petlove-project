@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type {
   ICategoryOption,
-  INotices,
   IGenderOption,
   ISpeciesOption,
   IQueryParams,
+  INoticesItem,
 } from "../../types/notices";
 import {
   getCategoryThunk,
@@ -16,13 +16,13 @@ import {
 import type { ICities } from "../../types/cities";
 
 interface INotice {
-  items: INotices[];
+  items: INoticesItem[];
   page: number;
   totalPages: number;
   isLoading: boolean;
   isError: boolean;
   queryParams: IQueryParams;
-  location: { label: string; value: string }[];
+  location: { label: string; id: string }[];
   genders: IGenderOption[];
   category: ICategoryOption[];
   species: ISpeciesOption[];
@@ -89,7 +89,7 @@ const noticesSlice = createSlice({
         (state, { payload }: { payload: ICities[] }) => {
           state.location = payload.map(({ _id, stateEn, cityEn }) => ({
             label: `${stateEn}, ${cityEn}`,
-            value: _id,
+            id: _id,
           }));
           state.isLoading = false;
         }
@@ -101,7 +101,7 @@ const noticesSlice = createSlice({
         (state, { payload }: { payload: string[] }) => {
           state.category = payload.map((item) => ({
             label: item,
-            value: item,
+            id: item,
           }));
           state.isLoading = false;
         }
@@ -111,7 +111,7 @@ const noticesSlice = createSlice({
       .addCase(
         getGenderThunk.fulfilled,
         (state, { payload }: { payload: string[] }) => {
-          state.genders = payload.map((item) => ({ label: item, value: item }));
+          state.genders = payload.map((item) => ({ label: item, id: item }));
           state.isLoading = false;
         }
       )
@@ -120,7 +120,7 @@ const noticesSlice = createSlice({
       .addCase(
         getTypeThunk.fulfilled,
         (state, { payload }: { payload: string[] }) => {
-          state.species = payload.map((item) => ({ label: item, value: item }));
+          state.species = payload.map((item) => ({ label: item, id: item }));
           state.isLoading = false;
         }
       )

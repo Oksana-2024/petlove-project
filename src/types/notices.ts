@@ -1,29 +1,28 @@
-export interface INotices {
-  _id: string;
-  species: string;
-  category: string;
+export interface INoticesItem {
+  imgURL: string;
   title: string;
   name: string;
   birthday: string;
-  comment: string;
   sex: string;
-  location: string;
-  imgURL: string;
-  user: string;
+  species: string;
+  category: string;
+  comment: string;
+  price: number;
   popularity: number;
+  _id: string;
 }
 
 export interface ICategoryOption {
   label: string;
-  value: string;
+  id: string;
 }
 export interface IGenderOption {
   label: string;
-  value: string;
+  id: string;
 }
 export interface ISpeciesOption {
   label: string;
-  value: string;
+  id: string;
 }
 
 export interface IQueryParams {

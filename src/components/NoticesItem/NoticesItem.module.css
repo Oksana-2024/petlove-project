@@ -1,0 +1,118 @@
+.image {
+  height: 128px;
+  border-radius: 16px;
+}
+
+.imgWrapper {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--notice-color);
+}
+
+.titleWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.starWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.descrWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--placeholder-color);
+  margin-bottom: 2px;
+}
+.accent {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+}
+
+.comment {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--notice-color);
+}
+
+.price {
+  width: 100%;
+  color: var(--notice-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.heartBtn {
+  border-radius: 30px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--second-bg);
+  transition: background-color 0.3s var(--transition);
+}
+
+.heartIcon {
+  fill: transparent;
+  stroke: var(--third-color);
+}
+.heartBtn:hover {
+  background-color: var(--dark-second-bg);
+}
+
+.starIcon {
+  fill: var(--yellow);
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  max-width: 231px;
+  height: 46px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.popularity {
+  color: var(--notice-color);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+}
