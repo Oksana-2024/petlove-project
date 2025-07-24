@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.mainLink{
+  color: var(--second-color);
+}
+
 @media screen and (min-resolution: 192dpi),
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 2dppx) {

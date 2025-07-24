@@ -2,8 +2,8 @@ import Navigation from "../Navigation/Navigation";
 import Icon from "../Icon/Icon";
 import { useEffect, useRef } from "react";
 
-import { Link } from "react-router-dom";
 import { useAuth } from "../../hook/useAuth";
+import AuthNav from "../AuthNav/AuthNav";
 import BaseButton from "../BaseButton/BaseButton";
 import s from "./MobileMenu.module.css";
 
@@ -61,14 +61,7 @@ const MobileMenu = ({ isOpen, onClose }: IMobileMenu) => {
             onClick={() => console.log("logout mobile")}
           />
         ) : (
-          <>
-            <Link to="/login" className={s.loginLink}>
-              Log In
-            </Link>
-            <Link to="/register" className={s.registerLink}>
-              Registration
-            </Link>
-          </>
+          <AuthNav />
         )}
       </div>
     </div>

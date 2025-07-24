@@ -6,12 +6,15 @@ import Logo from "../Logo/Logo";
 import s from "./Header.module.css";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useState } from "react";
+import { useAuth } from "../../hook/useAuth";
+import UserNav from "../UserNav/UserNav";
+import AuthNav from "../AuthNav/AuthNav";
 
 const Header = () => {
-  const { isSmallScreen, isBigScreen } = useMedia();
+  const { isSmallScreen, isBigScreen, isDesktop } = useMedia();
   const [isOpen, setIsOpen] = useState(false);
 
-  const isAuth = false;
+  const { isLoggedIn } = useAuth();
 
   const handleOpenMenu = () => {
     setIsOpen(true);
@@ -23,7 +26,7 @@ const Header = () => {
           <Logo />
           {isSmallScreen && (
             <div className={s.authMenuWrapper}>
-              {isAuth && (
+              {isLoggedIn && (
                 <button
                   className={s.profileBtn}
                   type="button"
@@ -45,11 +48,15 @@ const Header = () => {
           )}
           {isBigScreen && (
             <nav aria-label="Main navigation">
-              <Navigation variant/>
+              <Navigation variant />
             </nav>
           )}
+          {isDesktop && (isLoggedIn ? <UserNav /> : <AuthNav />)}
+
+          {isSmallScreen && (
+            <MobileMenu onClose={() => setIsOpen(false)} isOpen={isOpen} />
+          )}
         </div>
-        <MobileMenu onClose={() => setIsOpen(false)} isOpen={isOpen} />
       </Container>
     </header>
   );

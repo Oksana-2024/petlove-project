@@ -1,4 +1,5 @@
 import Container from "../../components/Container/Container";
+import ProgressLoader from "../../components/Loader/Loader";
 import Logo from "../../components/Logo/Logo";
 import s from "./MainPage.module.css";
 
@@ -8,7 +9,7 @@ const MainPage = () => {
     <section className={s.page}>
       <Container className={s.mainPage}>
         {isLoading ? (
-          <>...loading</>
+          <ProgressLoader />
         ) : (
           <Logo logo={s.mainLogo} link={s.mainLink} />
         )}
