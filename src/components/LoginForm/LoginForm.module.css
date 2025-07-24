@@ -118,6 +118,11 @@
   letter-spacing: -0.03em;
   color: var(--third-color);
   margin-left: 4px;
+  transition: color 0.3s var(--transition);
+}
+
+.link:hover {
+  color: var(--hover-btn);
 }
 
 .iconPasswordSuccess {
