@@ -62,11 +62,11 @@
   transform: border 300ms var(--transition);
 }
 
-.inputReg:focus-visible {
+.inputLogin:focus-visible {
   border: 1px solid var(--main-bg);
 }
 
-.inputReg::placeholder {
+.inputLogin::placeholder {
   color: var(--placeholder-color);
 }
 
@@ -141,4 +141,70 @@
 
 .secure {
   color: var(--success);
+}
+
+@media screen and (min-width: 768px) {
+  .formStyles {
+    padding: 71px 140px;
+    border-radius: 60px;
+  }
+
+  .title {
+    font-size: 54px;
+    margin-bottom: 16px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 1.22;
+    margin-bottom: 32px;
+  }
+
+  .inputLogin {
+    padding: 16px;
+  }
+
+  .togglePassButton {
+    top: 16px;
+    right: 16px;
+  }
+
+  .iconPasswordSuccess {
+    top: 16px;
+    right: 42px;
+  }
+
+  .iconPasswordError {
+    top: 16px;
+    right: 42px;
+  }
+
+  .iconError {
+    top: 16px;
+    right: 16px;
+  }
+
+  .inputWrapper:last-of-type {
+    margin-bottom: 52px;
+  }
+
+  .registrationBtn {
+    margin-bottom: 16px;
+  }
+
+  .textLink {
+    font-size: 14px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .formStyles {
+    padding: 118px 84px;
+    width: 592px;
+    height: 654px;
+  }
 }

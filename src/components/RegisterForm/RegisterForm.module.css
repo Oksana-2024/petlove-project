@@ -138,3 +138,46 @@
   top: 12px;
   right: 38px;
 }
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 54px;
+    margin-bottom: 16px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 1.22;
+    margin-bottom: 32px;
+  }
+  .textLink,
+  .link {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+
+  .registrationBtn {
+    margin-bottom: 16px;
+  }
+
+  .formStyles {
+    padding: 30px 140px;
+    border-radius: 60px;
+  }
+
+  .inputReg {
+    padding: 16px;
+  }
+
+  .togglePassButton {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .formStyles {
+    padding: 77px 84px;
+    width: 592px;
+  }
+}
