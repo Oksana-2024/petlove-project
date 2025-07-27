@@ -1,0 +1,43 @@
+.imgWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  background-color: var(--second-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logoutModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--main-ciolor);
+  margin-bottom: 28px;
+}
+
+.cancelBtn {
+  color: var(--main-ciolor);
+  background-color: var(--disabled);
+  transition: background-color 0.3s var(--transition),
+    color 0.3s var(--transition);
+}
+
+.cancelBtn:hover {
+  background-color: var(--placeholder-color);
+  color: var(--second-color);
+}

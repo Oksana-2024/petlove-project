@@ -65,12 +65,13 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-export const logoutUser = createAsyncThunk(
+export const logoutUserThunk = createAsyncThunk(
   "user/logout",
   async (_, thunkApi) => {
     try {
       const { token } = (thunkApi.getState() as StoreType).user;
       const { data } = await createAxios(token).post("/users/signout");
+      toast.success("User has been logout");
       return data;
     } catch (error) {
       const status = (error as AxiosError).status;
@@ -79,7 +80,8 @@ export const logoutUser = createAsyncThunk(
       let message = "Something went wrong. Please try again later.";
 
       if (status === 401) {
-        message = backendMessage || "Unauthorized";
+        toast.info("User has been logout");
+        return;
       } else if (status === 404) {
         message = backendMessage || "Service not found";
       } else if (status === 500) {
@@ -179,7 +181,10 @@ export const updateUser = createAsyncThunk(
 export const addPets = createAsyncThunk("pets/add", async (pet, thunkApi) => {
   try {
     const token = (thunkApi.getState() as StoreType).user.token;
-    const { data } = await createAxios(token).post("/users/current/pets/add", pet);
+    const { data } = await createAxios(token).post(
+      "/users/current/pets/add",
+      pet
+    );
     return data;
   } catch (error) {
     const status = (error as AxiosError).status;

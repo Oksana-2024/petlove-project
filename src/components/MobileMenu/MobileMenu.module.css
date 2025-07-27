@@ -66,3 +66,23 @@
   color: var(--color-logout);
   background-color: var(--bg-logout);
 }
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 40%;
+  }
+  .logoutBtn {
+    width: 65%;
+  }
+  .linkWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .linkStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

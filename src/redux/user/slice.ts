@@ -3,7 +3,7 @@ import {
   currentUser,
   getUser,
   loginThunk,
-  logoutUser,
+  logoutUserThunk,
   registerThunk,
   updateUser,
 } from "./operations";
@@ -51,8 +51,7 @@ const handleRejected = (user: IUser) => {
 const userSlice = createSlice({
   name: "user",
   initialState: user,
-  reducers: {
-    },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder
@@ -70,20 +69,18 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(logoutUser.pending, handlePending)
-      .addCase(logoutUser.fulfilled, (state) => {
+      .addCase(logoutUserThunk.pending, handlePending)
+      .addCase(logoutUserThunk.fulfilled, (state) => {
         state.name = null;
         state.email = null;
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logoutUser.rejected, (state, action) => {
-        if (action.payload === 401) {
-          state.name = null;
-          state.email = null;
-          state.token = null;
-          state.isLoggedIn = false;
-        }
+      .addCase(logoutUserThunk.rejected, (state) => {
+        state.name = null;
+        state.email = null;
+        state.token = null;
+        state.isLoggedIn = false;
       })
       .addCase(currentUser.pending, handlePending)
       .addCase(currentUser.fulfilled, (state, { payload }) => {

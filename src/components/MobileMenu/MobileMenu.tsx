@@ -1,11 +1,12 @@
 import Navigation from "../Navigation/Navigation";
 import Icon from "../Icon/Icon";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useAuth } from "../../hook/useAuth";
 import AuthNav from "../AuthNav/AuthNav";
 import BaseButton from "../BaseButton/BaseButton";
 import s from "./MobileMenu.module.css";
+import ModalApproveAction from "../ModalApproveAction/ModalApproveAction";
 
 interface IMobileMenu {
   isOpen: boolean;
@@ -14,6 +15,8 @@ interface IMobileMenu {
 
 const MobileMenu = ({ isOpen, onClose }: IMobileMenu) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const [isApproveAction, setIsApproveAction] = useState(false);
+
   const { isLoggedIn } = useAuth();
 
   useEffect(() => {
@@ -58,12 +61,16 @@ const MobileMenu = ({ isOpen, onClose }: IMobileMenu) => {
             text="Log out"
             type="button"
             style={s.logoutBtn}
-            onClick={() => console.log("logout mobile")}
+            onClick={() => setIsApproveAction(true)}
           />
         ) : (
-          <AuthNav />
+          <AuthNav className={s.linkStyle}/>
         )}
       </div>
+      <ModalApproveAction
+        isOpen={isApproveAction}
+        onClose={() => setIsApproveAction(false)}
+      />
     </div>
   );
 };
