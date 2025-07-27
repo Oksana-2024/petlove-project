@@ -7,7 +7,7 @@ const LoginPage = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <section className={s.loginPage}>
-      <Container>
+      <Container className={s.loginBox}>
         {isMobile && (
           <img
             className={s.imgDog}
@@ -29,7 +29,7 @@ const LoginPage = () => {
         {isDesktop && (
           <img
             className={s.imgDog}
-            src="/dog.webp"
+            src="/dog_d.webp"
             alt="Dog"
             sizes="592px"
             srcSet="/dog_d@2x.webp 2x"

@@ -19,7 +19,7 @@
 .textWrapper {
   width: 100%;
   color: var(--second-theme-color);
-  padding: 60px 20px 50px;
+  padding: 44px 20px 50px;
   background-color: var(--main-bg);
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
@@ -52,7 +52,7 @@
   .textWrapper {
     align-items: flex-end;
     gap: 32px;
-    padding: 90px 32px 44px;
+    padding: 80px 32px 44px;
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
   }

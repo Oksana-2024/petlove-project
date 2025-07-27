@@ -6,3 +6,27 @@
   border-radius: 30px;
   margin-bottom: 10px;
 }
+
+@media screen and (min-width: 768px) {
+  .registerBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .page {
+    padding-bottom: 32px;
+    padding-top: 0;
+  }
+  .imgCat {
+    margin-bottom: 0;
+    border-radius: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .registerBox {
+    flex-direction: row;
+    gap: 32px;
+  }
+}

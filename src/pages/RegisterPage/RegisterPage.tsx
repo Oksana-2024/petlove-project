@@ -7,7 +7,7 @@ const RegisterPage = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();
   return (
     <section className={s.page}>
-      <Container>
+      <Container className={s.registerBox}>
         {isMobile && (
           <img
             className={s.imgCat}

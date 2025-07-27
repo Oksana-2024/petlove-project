@@ -1,9 +1,33 @@
-.loginPage{
-    padding-top: 6px;
-    padding-bottom: 20px;
+.loginPage {
+  padding-bottom: 20px;
 }
 .imgDog {
   border-radius: 30px;
   margin-bottom: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .imgDog {
+    border-radius: 60px;
+    margin-bottom: 0;
+    width: 100%;
+    height: 302px;
+  }
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginBox {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .imgDog {
+    width: 592px;
+    height: 654px;
+  }
+}

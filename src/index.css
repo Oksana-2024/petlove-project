@@ -50,6 +50,12 @@
   --color-link-modal: #262626;
   --icon-fill: #f6b83d;
   --icon-wrapper: #fff;
+  --header-padding: 24px 20px 26px;
+  --header-padding-tablet:27px 32px 43px;
+  --border-link-header: rgba(255, 255, 255, 0.4);
+  --border-link-header-active: rgba(255, 255, 255, 0.4);
+  --logo-margin: 280px;
+  --border-login-link: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="default"] {
@@ -66,6 +72,12 @@
   --color-link-modal: #fff;
   --icon-fill: #f6b83d;
   --icon-wrapper: #fff4df;
+  --header-padding: 24px 0 26px;
+  --header-padding-tablet:16px 0 32px;
+  --border-link-header: rgba(38, 38, 38, 0.15);
+  --border-link-header-active: #f6b83d;
+  --logo-margin: 313px;
+  --border-login-link: transparent;
 }
 
 @font-face {
