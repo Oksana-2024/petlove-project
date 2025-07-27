@@ -11,7 +11,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 20px;
+  padding: var(--header-padding);
 }
 
 .menuBtn {
@@ -40,4 +40,44 @@
   border-radius: 100px;
   width: 40px;
   height: 40px;
+}
+
+.headerNav {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 316px;
+}
+
+@media screen and (min-width: 768px) {
+  .tabletWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .headerWrapper {
+    padding: var(--header-padding-tablet);
+  }
+
+  .iconMenu {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header {
+    padding-top: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginLink {
+    background-color: var(--main-bg);
+  }
+
+  .headerNav {
+    width: 316px;
+    justify-content: space-between;
+  }
 }

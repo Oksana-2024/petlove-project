@@ -3,15 +3,20 @@ import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
-import s from "./Header.module.css";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useState } from "react";
 import { useAuth } from "../../hook/useAuth";
 import UserNav from "../UserNav/UserNav";
 import AuthNav from "../AuthNav/AuthNav";
+import clsx from "clsx";
+import s from "./Header.module.css";
 
-const Header = () => {
-  const { isSmallScreen, isBigScreen, isDesktop } = useMedia();
+interface IHeader {
+  className?: string;
+}
+const Header = ({ className }: IHeader) => {
+  const { isMobile, isBigScreen, isDesktop, isTablet, isSmallScreen } =
+    useMedia();
   const [isOpen, setIsOpen] = useState(false);
 
   const { isLoggedIn } = useAuth();
@@ -22,9 +27,22 @@ const Header = () => {
   return (
     <header className={s.page}>
       <Container className={s.header}>
-        <div className={s.headerWrapper}>
-          <Logo />
-          {isSmallScreen && (
+        <div className={clsx(s.headerWrapper, className)}>
+          <Logo link={s.logo}/>
+      <div className={s.tabletWrapper}>
+            {isTablet && isLoggedIn && <UserNav />}
+            {isTablet && (
+              <button
+                className={s.menuBtn}
+                type="button"
+                onClick={handleOpenMenu}
+                aria-label="Open menu"
+              >
+                <Icon name="icon-menu" size={32} className={s.iconMenu} />
+              </button>
+            )}
+      </div>
+          {isMobile && (
             <div className={s.authMenuWrapper}>
               {isLoggedIn && (
                 <button
@@ -48,11 +66,10 @@ const Header = () => {
           )}
           {isBigScreen && (
             <nav aria-label="Main navigation">
-              <Navigation variant />
+              <Navigation variant className={s.headerNav}  />
             </nav>
           )}
-          {isDesktop && (isLoggedIn ? <UserNav /> : <AuthNav />)}
-
+          {isDesktop && (isLoggedIn ? <UserNav /> : <AuthNav login={s.loginLink} register={s.regLink}/>)}
           {isSmallScreen && (
             <MobileMenu onClose={() => setIsOpen(false)} isOpen={isOpen} />
           )}
