@@ -25,11 +25,11 @@
   color: var(--third-color);
 }
 
-.loginLink:hover {
+.registerLink:hover {
   background-color: var(--dark-second-bg);
 }
 
-.registerLink:hover {
+.loginLink:hover {
   background-color: var(--hover-btn);
 }
 
@@ -38,4 +38,18 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+
+
+@media screen and (min-width: 1280px) {
+  .navLink {
+    width: 276px;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .loginLink {
+    border: 1px solid var(--border-login-link);
+  }
 }
