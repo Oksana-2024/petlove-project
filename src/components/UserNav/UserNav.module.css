@@ -5,7 +5,12 @@
   letter-spacing: -0.03em;
   color: var(--color-logout);
   background-color: var(--bg-logout);
+  transition: background-color 0.3s var(--transition);
   width: 136px;
+}
+
+.logoutBtn:hover {
+  background-color: var(--dark-second-bg);
 }
 
 .userIcon {
@@ -17,6 +22,14 @@
   border-radius: 100px;
   width: 40px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s var(--transition);
+}
+
+.profileBtn:hover {
+  background-color: var(--dark-second-bg);
 }
 
 .userNav {
@@ -37,6 +50,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--second-theme-color);
+}
+
+.avatar {
+  border-radius: 100px;
+  height: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .profileBtn {
+    width: 50px;
+    height: 50px;
+  }
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media screen and (min-width: 1280px) {

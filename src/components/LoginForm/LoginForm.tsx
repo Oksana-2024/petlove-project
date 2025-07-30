@@ -47,7 +47,7 @@ const LoginForm = () => {
     try {
       const { email, password } = data as ILoginForm;
       await dispath(loginThunk({ email, password })).unwrap();
-      navigate("/home");
+      navigate("/profile");
     } catch (error) {
       setError("root.serverError", {
         type: "server",

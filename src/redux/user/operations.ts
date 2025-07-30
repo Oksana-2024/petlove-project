@@ -5,6 +5,7 @@ import type { AxiosError } from "axios";
 import type { StoreType } from "../store";
 import type { RegisterCredentials } from "../../components/RegisterForm/RegisterForm";
 import type { ILoginForm } from "../../components/LoginForm/LoginForm";
+import type { IUpdateUser } from "../../components/ModalEditUser/ModalEditUser";
 
 export const registerThunk = createAsyncThunk(
   "user/register",
@@ -116,7 +117,7 @@ export const currentUser = createAsyncThunk(
       }
 
       toast.error(message);
-      return thunkApi.rejectWithValue(message);
+      return thunkApi.rejectWithValue(status);
     }
   }
 );
@@ -148,7 +149,7 @@ export const getUser = createAsyncThunk("user/full", async (_, thunkApi) => {
 
 export const updateUser = createAsyncThunk(
   "user/update",
-  async (newUser, thunkApi) => {
+  async (newUser: IUpdateUser, thunkApi) => {
     try {
       const state = thunkApi.getState() as StoreType;
       const { token } = state.user;

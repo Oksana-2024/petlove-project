@@ -4,6 +4,7 @@
   --main-color: #262626;
   --second-color: #fff;
   --third-color: #f6b83d;
+  --fourth-color: rgba(43, 43, 42, 0.4);
   --accent-color: rgba(255, 255, 255, 0.4);
   --link-color: #ffffff;
   --notice-color: #2b2b2a;
@@ -17,6 +18,8 @@
   --modal-bg: #fff;
   --form-bg: #fff;
   --bg-logout: #fff4df;
+  --female-bg: rgba(244, 63, 94, 0.1);
+  --male-bg: rgba(84, 173, 255, 0.1);
   --overlay-bg: rgba(38, 38, 38, 0.3);
   --dark-second-bg: #fbe7c1;
   --cat-404-bg: rgba(255, 255, 255, 0.1);
@@ -51,7 +54,7 @@
   --icon-fill: #f6b83d;
   --icon-wrapper: #fff;
   --header-padding: 24px 20px 26px;
-  --header-padding-tablet:27px 32px 43px;
+  --header-padding-tablet: 27px 32px 43px;
   --border-link-header: rgba(255, 255, 255, 0.4);
   --border-link-header-active: rgba(255, 255, 255, 0.4);
   --logo-margin: 280px;
@@ -73,7 +76,7 @@
   --icon-fill: #f6b83d;
   --icon-wrapper: #fff4df;
   --header-padding: 24px 0 26px;
-  --header-padding-tablet:16px 0 32px;
+  --header-padding-tablet: 16px 0 32px;
   --border-link-header: rgba(38, 38, 38, 0.15);
   --border-link-header-active: #f6b83d;
   --logo-margin: 313px;

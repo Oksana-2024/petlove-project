@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { type RouteObject } from "react-router-dom";
 import Layout from "../components/Layout";
 import MainPage from "../pages/MainPage/MainPage";
+import PrivateRoute from "../components/PrivatRoute";
 
 const Home = lazy(() => import("../pages/HomePage/HomePage"));
 const Register = lazy(() => import("../pages/RegisterPage/RegisterPage"));
@@ -27,8 +28,14 @@ const routes: RouteObject[] = [
       { path: "/news", element: <News /> },
       { path: "/notices", element: <Notices /> },
       { path: "/friends", element: <Friends /> },
-      { path: "/profile", element: <Profile /> },
-      { path: "/add-pet", element: <AddPet /> },
+      {
+        element: <PrivateRoute />,
+        children: [
+          { path: "/profile", element: <Profile /> },
+          { path: "/add-pet", element: <AddPet /> },
+        ],
+      },
+
       { path: "*", element: <NotFound /> },
     ],
   },

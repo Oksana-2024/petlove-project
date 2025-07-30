@@ -23,5 +23,4 @@ export const selectFavorites = (state: StoreType) =>
 
 export const selectViewed = (state: StoreType) => state.user.noticesViewed;
 
-export const selectComfirmLogout = (state: StoreType) =>
-  state.user.isComfirmLogout;
+

@@ -4,7 +4,7 @@ import routes from "../routes/routes";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/user/selectors";
 import { useAppDispatch } from "../hook/useDispatch";
-import { currentUser } from "../redux/user/operations";
+import { getUser } from "../redux/user/operations";
 
 function App() {
   const routing = useRoutes(routes);
@@ -12,7 +12,7 @@ function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (isLoggedIn) {
-      dispatch(currentUser());
+      dispatch(getUser());
     }
   }, [dispatch, isLoggedIn]);
 

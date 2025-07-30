@@ -55,8 +55,7 @@ const RegisterForm = () => {
     try {
       const { name, email, password } = data as IFormInput;
       await dispath(registerThunk({ name, email, password })).unwrap();
-
-      navigate("/home");
+      navigate("/profile");
     } catch (error) {
       setError("root.serverError", {
         type: "server",
@@ -164,7 +163,7 @@ const RegisterForm = () => {
         />
         <div className={s.errorWrapper}>
           {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-        
+
           {(dirtyFields.confirmPassword || touchedFields.confirmPassword) &&
             !errors.confirmPassword && (
               <p className={s.match}> Passwords match</p>
