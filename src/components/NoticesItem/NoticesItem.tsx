@@ -8,12 +8,13 @@ import ModalNotice from "../ModalNotice/ModalNotice";
 import ModalAttention from "../ModalAttention/ModalAttention";
 import s from "./NoticesItem.module.css";
 import { useSelector } from "react-redux";
-import { selectFavorites } from "../../redux/favorite/selectors";
+
 import { useAppDispatch } from "../../hook/useDispatch";
 import {
   addFavoriteThunk,
   removeFavoriteThunk,
-} from "../../redux/favorite/operations";
+} from "../../redux/user/operations";
+import { selectFavorites } from "../../redux/user/selectors";
 
 const NoticesItem = ({
   _id,
@@ -35,6 +36,7 @@ const NoticesItem = ({
   const dispatch = useAppDispatch();
   const isFavorites = () => favoritesId.includes(_id);
   const handleFavorite = () => {
+    console.log("fav", favoritesId, _id);
     if (isFavorites()) {
       dispatch(removeFavoriteThunk(_id));
       return;
@@ -96,7 +98,11 @@ const NoticesItem = ({
             setIsOpen(true);
           }}
         >
-          <Icon name="icon-heart" size={18} className={s.heartIcon} />
+          <Icon
+            name="icon-heart"
+            size={18}
+            className={isFavorites() ? s.heartFillIcon : s.heartIcon}
+          />
         </button>
       </div>
       <ModalNotice

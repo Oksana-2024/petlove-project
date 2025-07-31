@@ -1,4 +1,4 @@
-import { object, string, enum as zodEnum } from "zod";
+import { object, string } from "zod";
 
 export const registerValidationSchema = object({
   name: string()
@@ -48,7 +48,7 @@ export const userUpdateSchema = object({
   avatar: string()
     .regex(
       /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
-      "Invalid image format"
+      "Image URL must end with .png, .jpg, .jpeg, .gif, .bmp, or .webp."
     )
     .optional(),
 });
@@ -58,23 +58,8 @@ export const petValidationSchema = object({
     .min(2, "Minimum length is 2 characters")
     .max(20, "Maximum length is 20 characters"),
   title: string().max(50, "Maximum length is 50 characters"),
-  imgUrl: string(),
-  species: zodEnum([
-    "dog",
-    "cat",
-    "monkey",
-    "bird",
-    "snake",
-    "turtle",
-    "lizard",
-    "frog",
-    "fish",
-    "ants",
-    "bees",
-    "butterfly",
-    "spider",
-    "scorpion",
-  ]),
-  birthday: string().datetime({}),
-  sex: zodEnum(["unknown", "female", "male", "multiple"]),
+  imgURL: string().regex(/^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/, "Image URL must end with .png, .jpg, .jpeg, .gif, .bmp, or .webp."),
+  species: string(),
+  birthday: string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  sex: string(),
 });

@@ -33,6 +33,7 @@ const friendsSlice = createSlice({
     builder.addCase(getFriendsThunk.pending, handlePending);
     builder.addCase(getFriendsThunk.fulfilled, (state, { payload }) => {
       state.items = payload;
+      state.isLoading = false;
     });
     builder.addCase(getFriendsThunk.rejected, handleRejected);
   },

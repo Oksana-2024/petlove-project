@@ -1,0 +1,79 @@
+.footprintWrapper {
+  width: 68px;
+  height: 68px;
+  background-color: var(--second-bg);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.footIcon {
+  fill: var(--main-bg);
+}
+
+.titleAccent {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: var(--fourth-color);
+}
+
+.petFormWrapper {
+  padding: 28px 20px 20px;
+  border-radius: 30px;
+  background-color: var(--form-bg);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.maleIcon {
+  fill: none;
+  stroke: var(--blue);
+}
+
+.femaleIcon {
+  fill: none;
+  stroke: var(--red-icon);
+}
+
+.genderIcon {
+  fill: var(--main-bg);
+}
+
+.genderIconGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 2px;
+}
+
+.iconDecor {
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.male {
+  background-color: var(--male-bg);
+}
+
+.female {
+  background-color: var(--female-bg);
+}
+
+.malefemale {
+  background-color: var(--second-bg);
+}

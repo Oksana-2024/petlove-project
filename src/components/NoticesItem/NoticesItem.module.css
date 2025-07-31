@@ -88,6 +88,10 @@
   fill: transparent;
   stroke: var(--third-color);
 }
+
+.heartFillIcon {
+  fill: var(--third-color);
+}
 .heartBtn:hover {
   background-color: var(--dark-second-bg);
 }

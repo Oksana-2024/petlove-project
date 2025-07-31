@@ -9,6 +9,8 @@ import {
   removeFavoriteThunk,
   updateUser,
 } from "./operations";
+import type { INoticesItem } from "../../types/notices";
+import type { IPet } from "../../types/pets";
 
 interface IUser {
   name: string | null;
@@ -16,11 +18,11 @@ interface IUser {
   phone: string | null;
   avatar: string | null;
   token: string | null;
-  noticesFavorites: [];
-  noticesViewed: [];
+  noticesFavorites: INoticesItem[];
+  noticesViewed: INoticesItem[];
   favorites: string[];
   isLoggedIn: boolean;
-  pets: [];
+  pets: IPet[];
   isLoading: boolean;
   isError: boolean;
 }
@@ -63,6 +65,7 @@ const userSlice = createSlice({
         state.email = action.payload.email;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(registerThunk.rejected, handleRejected)
       .addCase(loginThunk.fulfilled, (state, action) => {
@@ -70,6 +73,7 @@ const userSlice = createSlice({
         state.email = action.payload.email;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(logoutUserThunk.pending, handlePending)
       .addCase(logoutUserThunk.fulfilled, (state) => {
@@ -77,12 +81,14 @@ const userSlice = createSlice({
         state.email = null;
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
       .addCase(logoutUserThunk.rejected, (state) => {
         state.name = null;
         state.email = null;
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
       .addCase(currentUser.pending, handlePending)
       .addCase(currentUser.fulfilled, (state, { payload }) => {
@@ -91,11 +97,13 @@ const userSlice = createSlice({
         state.token = payload.token;
         state.noticesFavorites = payload.noticesFavorites;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(currentUser.rejected, (state, { payload }) => {
         if (payload === 401) {
           state.token = null;
           state.isLoggedIn = false;
+          state.isLoading = false;
         }
       })
       .addCase(getUser.pending, handlePending)
@@ -112,24 +120,27 @@ const userSlice = createSlice({
         state.noticesViewed = payload.noticesViewed;
         state.pets = payload.pets;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(getUser.rejected, handleRejected)
       .addCase(updateUser.pending, handlePending)
       .addCase(updateUser.fulfilled, (state, action) => {
         state.avatar = action.payload.avatar;
-        console.log("avatarUpdatetUser", state.avatar);
         state.name = action.payload.name;
         state.email = action.payload.email;
         state.phone = action.payload.phone;
+        state.isLoading = false;
       })
       .addCase(updateUser.rejected, handleRejected)
       .addCase(addFavoriteThunk.pending, handlePending)
       .addCase(addFavoriteThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.favorites = payload;
       })
       .addCase(addFavoriteThunk.rejected, handleRejected)
       .addCase(removeFavoriteThunk.pending, handlePending)
       .addCase(removeFavoriteThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.favorites = payload;
       })
       .addCase(removeFavoriteThunk.rejected, handleRejected);
