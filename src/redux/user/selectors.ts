@@ -18,9 +18,9 @@ export const selectToken = (state: StoreType) => state.user.token;
 
 export const selectisLoading = (state: StoreType) => state.user.isLoading;
 
-export const selectFavorites = (state: StoreType) =>
+export const selectNoticesFavorites = (state: StoreType) =>
   state.user.noticesFavorites;
 
+export const selectFavorites = (state: StoreType) => state.user.favorites;
+
 export const selectViewed = (state: StoreType) => state.user.noticesViewed;
-
-

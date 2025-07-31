@@ -5,7 +5,6 @@ import newsReducer from "./news/slice";
 import friendsReducer from "./friends/slice";
 import noticesReducer from "./notices/slice";
 import storage from "redux-persist/lib/storage";
-import favoriteReducer from "./favorite/slice";
 
 const persistConfig = {
   key: "user",
@@ -21,7 +20,6 @@ const store = configureStore({
     news: newsReducer,
     friends: friendsReducer,
     notices: noticesReducer,
-    favorites: favoriteReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  addFavoriteThunk,
   currentUser,
   getUser,
   loginThunk,
   logoutUserThunk,
   registerThunk,
+  removeFavoriteThunk,
   updateUser,
 } from "./operations";
 
@@ -16,6 +18,7 @@ interface IUser {
   token: string | null;
   noticesFavorites: [];
   noticesViewed: [];
+  favorites: string[];
   isLoggedIn: boolean;
   pets: [];
   isLoading: boolean;
@@ -28,6 +31,7 @@ const user: IUser = {
   phone: null,
   avatar: null,
   token: null,
+  favorites: [],
   noticesFavorites: [],
   noticesViewed: [],
   pets: [],
@@ -102,10 +106,12 @@ const userSlice = createSlice({
         state.phone = payload.phone;
         state.token = payload.token;
         state.noticesFavorites = payload.noticesFavorites;
+        state.favorites = payload.noticesFavorites.map(
+          ({ _id }: { _id: string }) => _id
+        );
         state.noticesViewed = payload.noticesViewed;
         state.pets = payload.pets;
         state.isLoggedIn = true;
-        console.log("avatarGetUser", state.avatar);
       })
       .addCase(getUser.rejected, handleRejected)
       .addCase(updateUser.pending, handlePending)
@@ -116,7 +122,17 @@ const userSlice = createSlice({
         state.email = action.payload.email;
         state.phone = action.payload.phone;
       })
-      .addCase(updateUser.rejected, handleRejected);
+      .addCase(updateUser.rejected, handleRejected)
+      .addCase(addFavoriteThunk.pending, handlePending)
+      .addCase(addFavoriteThunk.fulfilled, (state, { payload }) => {
+        state.favorites = payload;
+      })
+      .addCase(addFavoriteThunk.rejected, handleRejected)
+      .addCase(removeFavoriteThunk.pending, handlePending)
+      .addCase(removeFavoriteThunk.fulfilled, (state, { payload }) => {
+        state.favorites = payload;
+      })
+      .addCase(removeFavoriteThunk.rejected, handleRejected);
   },
 });
 
