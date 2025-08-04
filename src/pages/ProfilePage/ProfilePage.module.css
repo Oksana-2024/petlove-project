@@ -1,4 +1,17 @@
+.profilePage {
+  padding-bottom: 56px;
+}
+
 .profilePageWrapper {
   border-radius: 30px;
   background-color: var(--form-bg);
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .containerProfile {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
 }

@@ -1,0 +1,34 @@
+.viewedList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewedItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border-radius: 16px;
+  background-color: var(--form-bg);
+}
+
+@media screen and (min-width: 768px) {
+  .viewedItem {
+    padding: 14px;
+    width: 342px;
+  }
+  .viewedList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .viewedItem {
+    width: 320px;
+  }
+}

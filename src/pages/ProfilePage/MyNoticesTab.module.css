@@ -1,0 +1,33 @@
+.link {
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 123px;
+  height: 42px;
+  background-color: var(--form-bg);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.active {
+  background-color: var(--main-bg);
+  color: var(--second-color);
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .navList {
+    margin-bottom: 32px;
+    gap: 8px;
+  }
+}
