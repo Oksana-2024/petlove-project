@@ -6,7 +6,7 @@ const NewsList = ({ news }: { news: INewsItem[] }) => {
   return (
     <ul className={s.list}>
       {news?.map((item) => (
-        <li key={item._id}>
+        <li key={item._id} className={s.newsItem}>
           <NewsItem {...item} />
         </li>
       ))}

@@ -1,7 +1,7 @@
 .logoutBtn {
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.28571;
+  line-height: 1.29;
   letter-spacing: -0.03em;
   color: var(--color-logout);
   background-color: var(--bg-logout);

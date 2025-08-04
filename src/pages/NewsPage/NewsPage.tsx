@@ -67,18 +67,21 @@ const NewsPage = () => {
           <ProgressLoader />
         ) : (
           <>
-            <Title title="News" className={s.title} />
-            <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-              <SearchField
-                placeholder="Search"
-                inputProps={register("query")}
-                showClearIcon={
-                  (dirtyFields.query as boolean) ||
-                  (touchedFields.query as boolean)
-                }
-                onClear={handleClear}
-              />
-            </form>
+         <div className={s.titleBlock}>
+              <Title title="News" className={s.title} />
+              <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+                <SearchField
+                  placeholder="Search"
+                  inputProps={register("query")}
+                  showClearIcon={
+                    (dirtyFields.query as boolean) ||
+                    (touchedFields.query as boolean)
+                  }
+                  onClear={handleClear}
+                  className={s.searchNews}
+                />
+              </form>
+         </div>
             <NewsList news={news} />
             <Pagination
               onPageChange={handlePage}

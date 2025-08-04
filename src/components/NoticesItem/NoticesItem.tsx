@@ -1,20 +1,28 @@
 import { useAuth } from "../../hook/useAuth";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import type { INoticesItem } from "../../types/notices";
 import { formatDateToUkrainian } from "../../utils/formatDate";
 import BaseButton from "../BaseButton/BaseButton";
 import Icon from "../Icon/Icon";
 import ModalNotice from "../ModalNotice/ModalNotice";
 import ModalAttention from "../ModalAttention/ModalAttention";
-import s from "./NoticesItem.module.css";
 import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../hook/useDispatch";
 import {
   addFavoriteThunk,
+  getUser,
   removeFavoriteThunk,
 } from "../../redux/user/operations";
 import { selectFavorites } from "../../redux/user/selectors";
+import clsx from "clsx";
+import s from "./NoticesItem.module.css";
+interface ItemProps extends INoticesItem {
+  isFavoriteTab?: boolean;
+  isViewed?: boolean;
+  onClick?: () => void;
+}
 
 const NoticesItem = ({
   _id,
@@ -28,21 +36,38 @@ const NoticesItem = ({
   comment,
   price,
   popularity,
-}: INoticesItem) => {
+  isFavoriteTab,
+  isViewed,
+  onClick,
+}: ItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isLoggedIn } = useAuth();
   const [isOpenNotice, setIsOpenNotice] = useState(false);
-  const favoritesId = useSelector(selectFavorites);
+
+  const { isLoggedIn } = useAuth();
   const dispatch = useAppDispatch();
+
+  const favoritesId = useSelector(selectFavorites);
+
   const isFavorites = () => favoritesId.includes(_id);
+
   const handleFavorite = () => {
-    console.log("fav", favoritesId, _id);
     if (isFavorites()) {
-      dispatch(removeFavoriteThunk(_id));
+      dispatch(removeFavoriteThunk(_id))
+        .unwrap()
+        .then(() => {
+          dispatch(getUser());
+          toast.info("Pet successfully removed from your list");
+        });
       return;
     }
-    dispatch(addFavoriteThunk(_id));
+    dispatch(addFavoriteThunk(_id))
+      .unwrap()
+      .then(() => {
+        dispatch(getUser());
+        toast.success("Pet was successfully added to your favorites");
+      });
   };
+
   return (
     <>
       <div className={s.imgWrapper}>
@@ -84,26 +109,33 @@ const NoticesItem = ({
           text="Learn more"
           type="button"
           onClick={() => (isLoggedIn ? setIsOpenNotice(true) : setIsOpen(true))}
-          style={s.button}
+          style={clsx(s.button, isViewed && s.buttonCenter)}
         />
-        <button
-          type="button"
-          className={s.heartBtn}
-          onClick={() => {
-            if (isLoggedIn) {
-              handleFavorite();
-              return;
-            }
 
-            setIsOpen(true);
-          }}
-        >
-          <Icon
-            name="icon-heart"
-            size={18}
-            className={isFavorites() ? s.heartFillIcon : s.heartIcon}
-          />
-        </button>
+        {!isViewed &&
+          (isFavoriteTab ? (
+            <button type="button" className={s.heartBtn} onClick={onClick}>
+              <Icon name="icon-trash-2" size={18} className={s.trashIcon} />
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={s.heartBtn}
+              onClick={() => {
+                if (isLoggedIn) {
+                  handleFavorite();
+                  return;
+                }
+                setIsOpen(true);
+              }}
+            >
+              <Icon
+                name="icon-heart"
+                size={18}
+                className={isFavorites() ? s.heartFillIcon : s.heartIcon}
+              />
+            </button>
+          ))}
       </div>
       <ModalNotice
         _id={_id}

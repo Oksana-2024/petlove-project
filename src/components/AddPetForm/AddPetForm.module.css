@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin: 0 auto 16px auto;
 }
 
 .footIcon {
@@ -24,6 +24,7 @@
   padding: 28px 20px 20px;
   border-radius: 30px;
   background-color: var(--form-bg);
+  position: relative;
 }
 
 .title {
@@ -70,10 +71,156 @@
   background-color: var(--male-bg);
 }
 
+.genderInput:checked + label .maleIcon {
+  stroke: var(--second-color);
+}
+
+.genderInput:checked + .male {
+  background-color: var(--blue);
+}
+
+.genderInput:checked + .female {
+  background-color: var(--red-icon);
+}
+
+.genderInput:checked + .malefemale {
+  background-color: var(--main-bg);
+}
+
+.genderInput:checked + label .femaleIcon {
+  stroke: var(--second-color);
+}
+
+.genderInput:checked + label .genderIcon {
+  stroke: var(--second-color);
+}
+
 .female {
   background-color: var(--female-bg);
 }
 
 .malefemale {
   background-color: var(--second-bg);
+}
+
+.errorText {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  text-align: left;
+  margin-top: 3px;
+  margin-left: 14px;
+  margin-right: 14px;
+  color: var(--error);
+}
+
+.visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  margin: -1px;
+}
+
+.avatarImg {
+  border-radius: 100px;
+  height: 68px;
+}
+
+.wrapperInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.formInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 31px;
+}
+
+.submitBtn {
+  width: 100px;
+  text-transform: capitalize;
+}
+
+.linkBtn {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: var(--disabled);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.03em;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .linkBtn {
+    width: 170px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .submitBtn {
+    width: 170px;
+    height: 48px;
+  }
+
+  .petFormWrapper {
+    padding: 40px 136px;
+    border-radius: 60px;
+    background-color: var(--form-bg);
+    position: relative;
+  }
+
+  .titleAccent {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .maleIcon,
+  .femaleIcon,
+  .genderIcon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .iconDecor {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footprintWrapper {
+    width: 86px;
+    height: 86px;
+    transform: translateY(-26px);
+    margin-bottom: -12px;
+  }
 }

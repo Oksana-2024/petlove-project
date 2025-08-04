@@ -12,12 +12,12 @@ const UserNav = () => {
   const [isLogout, setIsLogout] = useState(false);
   const user = useSelector(selectName);
   const avatar = useSelector(selectAvatar);
-  const { isBigScreen, isMobile } = useMedia();
+  const { isDesktop, isMobile } = useMedia();
 
   return (
     <>
       <div className={s.userNav}>
-        {isBigScreen && (
+        {isDesktop && (
           <BaseButton
             text="Log out"
             type="button"

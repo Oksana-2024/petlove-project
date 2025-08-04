@@ -7,6 +7,11 @@ import Icon from "../Icon/Icon";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import BaseButton from "../BaseButton/BaseButton";
 import s from "./ModalNotice.module.css";
+import { toast } from "react-toastify";
+import { addFavoriteThunk, getUser } from "../../redux/user/operations";
+import { useAppDispatch } from "../../hook/useDispatch";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/user/selectors";
 
 interface IModalNotice {
   onClose: () => void;
@@ -17,6 +22,11 @@ interface IModalNotice {
 const ModalNotice = ({ onClose, isOpen, _id }: IModalNotice) => {
   const [data, setData] = useState<INoticesItem | null>(null);
   const { token } = useAuth();
+  const dispatch = useAppDispatch();
+  const favoritesId = useSelector(selectFavorites);
+
+  const isFavorites = () => favoritesId.includes(_id);
+
   const fetchNoticeById = async () => {
     try {
       const { data } = await createAxios(token).get(`/notices/${_id}`);
@@ -32,10 +42,24 @@ const ModalNotice = ({ onClose, isOpen, _id }: IModalNotice) => {
     }
   };
 
+  const handleFavorite = () => {
+    if (isFavorites()) {
+      return toast.info("This pet is already in your favorites");
+    } else {
+      dispatch(addFavoriteThunk(_id))
+        .unwrap()
+        .then(() => {
+          dispatch(getUser());
+          toast.success("Pet was successfully added to your favorites");
+        });
+    }
+  };
+
   useEffect(() => {
     if (!isOpen) return;
     fetchNoticeById();
   }, [_id, isOpen]);
+
   return (
     <ModalWindow closeModal={onClose} modalIsOpen={isOpen} className={s.modal}>
       <div className={s.imgWrapper}>
@@ -126,6 +150,7 @@ const ModalNotice = ({ onClose, isOpen, _id }: IModalNotice) => {
           icon="icon-heart"
           style={s.addBtn}
           iconStyle={s.iconHeart}
+          onClick={handleFavorite}
         />
         <a href="mailto:example@email.com" className={s.contact}>
           Contact

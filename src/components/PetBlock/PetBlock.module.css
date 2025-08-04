@@ -3,3 +3,18 @@
   width: 100%;
   height: 213px;
 }
+
+@media screen and (min-width: 768px) {
+  .dogImage {
+    border-radius: 60px;
+    width: 100%;
+    height: 248px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dogImage {
+    width: 592px;
+    height: 654px;
+  }
+}

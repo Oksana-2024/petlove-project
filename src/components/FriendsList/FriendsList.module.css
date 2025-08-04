@@ -15,3 +15,15 @@
   position: relative;
   width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .item {
+    width: 342px;
+    height: 196px;
+    gap: 16px;
+  }
+}

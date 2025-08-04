@@ -10,7 +10,7 @@ const UserCard = () => {
   const user = useSelector(selectUser);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   return (
-    <>
+    <div className={s.userCardBlock}>
       <div className={s.userBlockWrapper}>
         <div className={s.userWrapper}>
           <span className={s.text}>User</span>
@@ -43,7 +43,7 @@ const UserCard = () => {
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
       />
-    </>
+    </div>
   );
 };
 

@@ -4,6 +4,24 @@
   gap: 10px;
 }
 
+.petPage {
+  padding-bottom: 20px;
+}
 
+@media screen and (min-width: 768px) {
+  .petContainer {
+    gap: 16px;
+  }
+  .petPage {
+    padding-bottom: 32px;
+  }
+}
 
-
+@media screen and (min-width:1280px) {
+  .petContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+  
+}

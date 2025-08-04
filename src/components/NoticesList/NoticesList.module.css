@@ -14,3 +14,15 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .item {
+    width: 342px;
+  }
+
+  .list {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+  }
+}

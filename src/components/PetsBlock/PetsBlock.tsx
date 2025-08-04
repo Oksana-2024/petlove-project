@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import s from "./PetsBlock.module.css";
 import Icon from "../Icon/Icon";
 import PetsList from "../PetsList/PetsList";
+import BaseButton from "../BaseButton/BaseButton";
+import { useState } from "react";
+import ModalApproveAction from "../ModalApproveAction/ModalApproveAction";
 
 const PetsBlock = () => {
+  const [isLogout, setIsLogout] = useState(false);
   return (
     <div className={s.petsBlock}>
       <div className={s.titleWrapper}>
@@ -13,6 +17,16 @@ const PetsBlock = () => {
         </Link>
       </div>
       <PetsList />
+      <BaseButton
+        text="Log out"
+        type="button"
+        style={s.logoutBtn}
+        onClick={() => setIsLogout(true)}
+      />
+      <ModalApproveAction
+        isOpen={isLogout}
+        onClose={() => setIsLogout(false)}
+      />
     </div>
   );
 };

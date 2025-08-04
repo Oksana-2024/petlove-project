@@ -27,6 +27,7 @@ import SearchField from "../SearchField/SearchField";
 import { Chip } from "@mui/material";
 import Icon from "../Icon/Icon";
 import s from "./NoticesFilters.module.css";
+import useMedia from "../../hook/useMedia";
 
 type OptionType = {
   label: string;
@@ -48,6 +49,7 @@ const NoticesFilters = () => {
   const locations = useSelector(selectLocation);
   const gender = useSelector(selectGenders);
   const type = useSelector(selectSpecies);
+  const { isBigScreen } = useMedia();
 
   useEffect(() => {
     dispatch(getCitiesThunk());
@@ -133,7 +135,6 @@ const NoticesFilters = () => {
               componentsProps: {
                 paper: {
                   sx: {
-                    borderRadius: "15px",
                     boxShadow: "none",
                     border: "none",
                   },
@@ -148,13 +149,13 @@ const NoticesFilters = () => {
                   border: "none",
                 },
                 "& .MuiInputBase-root": {
-                  width: "143px",
+                  width: isBigScreen ? "170px" : "143px",
                   borderRadius: "30px",
                   backgroundColor: "var(--modal-bg)",
                   outline: "none",
                   fontWeight: "500",
-                  fontSize: "14px",
-                  lineHeight: "1.29",
+                  fontSize: isBigScreen ? "16px" : "14px",
+                  lineHeight: isBigScreen ? 1.25 : 1.29,
                   letterSpacing: "-0.03em",
                   padding: "0",
                 },
@@ -184,13 +185,13 @@ const NoticesFilters = () => {
                   border: "none",
                 },
                 "& .MuiInputBase-root": {
-                  width: "143px",
+                  width: isBigScreen ? "170px" : "143px",
                   borderRadius: "30px",
                   backgroundColor: "var(--modal-bg)",
                   outline: "none",
                   fontWeight: "500",
-                  fontSize: "14px",
-                  lineHeight: "1.29",
+                  fontSize: isBigScreen ? "16px" : "14px",
+                  lineHeight: isBigScreen ? 1.25 : 1.29,
                   letterSpacing: "-0.03em",
                   padding: "0",
                 },
@@ -229,13 +230,13 @@ const NoticesFilters = () => {
                 border: "none",
               },
               "& .MuiInputBase-root": {
-                width: "100%",
+                width: isBigScreen ? "190px" : "100%",
                 borderRadius: "30px",
                 backgroundColor: "var(--modal-bg)",
                 outline: "none",
                 fontWeight: "500",
-                fontSize: "14px",
-                lineHeight: "1.29",
+                fontSize: isBigScreen ? "16px" : "14px",
+                lineHeight: isBigScreen ? 1.25 : 1.29,
                 letterSpacing: "-0.03em",
                 padding: "0",
               },
@@ -277,13 +278,13 @@ const NoticesFilters = () => {
                 border: "none",
               },
               "& .MuiInputBase-root": {
-                width: "100%",
+                width: isBigScreen ? "170px" : "100%",
                 borderRadius: "30px",
                 backgroundColor: "var(--modal-bg)",
                 outline: "none",
                 fontWeight: "500",
-                fontSize: "14px",
-                lineHeight: "1.29",
+                fontSize: isBigScreen ? "16px" : "14px",
+                lineHeight: isBigScreen ? 1.25 : 1.29,
                 letterSpacing: "-0.03em",
                 padding: "0",
               },
@@ -335,10 +336,10 @@ const NoticesFilters = () => {
                       },
                       ".MuiChip-label": {
                         fontFamily: "var(--font-manrope) !important",
-                        fontSize: "14px",
+                        fontSize: isBigScreen ? "16px" : "14px",
                         fontWeight: 500,
                         letterSpacing: " -0.03em",
-                        lineHeight: 1.29,
+                        lineHeight: isBigScreen ? 1.25 : 1.29,
                         paddingLeft: 0,
                         paddingRight: 0,
                       },

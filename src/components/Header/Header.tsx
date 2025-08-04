@@ -15,8 +15,7 @@ interface IHeader {
   className?: string;
 }
 const Header = ({ className }: IHeader) => {
-  const { isMobile, isBigScreen, isDesktop, isTablet, isSmallScreen } =
-    useMedia();
+  const { isMobile, isDesktop, isTablet, isSmallScreen } = useMedia();
   const [isOpen, setIsOpen] = useState(false);
 
   const { isLoggedIn } = useAuth();
@@ -55,7 +54,7 @@ const Header = ({ className }: IHeader) => {
               </button>
             </div>
           )}
-          {isBigScreen && (
+          {isDesktop && (
             <nav aria-label="Main navigation">
               <Navigation variant className={s.headerNav} />
             </nav>

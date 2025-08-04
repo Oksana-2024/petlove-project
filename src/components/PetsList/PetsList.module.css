@@ -1,0 +1,37 @@
+.petsItem {
+  padding: 12px;
+  border-radius: 20px;
+  border: var(--border-li);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.petsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .petsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .petsItem {
+    width: 305px;
+    height: 149px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .petsItem {
+    width: 100%;
+  }
+}

@@ -40,3 +40,24 @@
 .resetIcon {
   stroke: var(--main-color);
 }
+
+@media screen and (min-width: 768px) {
+  .searchInput {
+    width: 265px;
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .serchBtn {
+    top: 16px;
+    right: 16px;
+  }
+  .resetFormBtn {
+    top: 16px;
+  }
+
+  .inputWrapper {
+    width: 265px;
+  }
+}

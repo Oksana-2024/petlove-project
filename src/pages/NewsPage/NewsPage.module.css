@@ -7,3 +7,21 @@
   margin-bottom: 20px;
 }
 
+@media screen and (min-width: 678px) {
+  .newsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .titleBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 337px;
+  }
+  .title {
+    margin-bottom: 0;
+  }
+}

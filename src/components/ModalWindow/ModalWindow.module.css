@@ -63,3 +63,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (min-width:678px) {
+  .modalBase{
+     width: 48%;
+  }
+}

@@ -31,8 +31,34 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .petsBlock {
   padding: 0 20px 40px;
+}
+
+.logoutBtn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--color-logout);
+  background-color: var(--bg-logout);
+  transition: background-color 0.3s var(--transition);
+  width: 114px;
+}
+
+.logoutBtn:hover {
+  background-color: var(--dark-second-bg);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .petsBlock {
+    padding: 0 40px 40px;
+  }
 }

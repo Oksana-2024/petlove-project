@@ -101,3 +101,39 @@
   height: 94px;
   width: 94px;
 }
+
+@media screen and (min-width: 768px) {
+  .userBlockWrapper {
+    padding: 40px 40px 100px 40px;
+  }
+  .listWrapper {
+    padding: 0 40px 40px;
+  }
+  .avatarImg {
+    width: 110px;
+    height: 110px;
+  }
+  .userIconWrapper {
+    width: 110px;
+    height: 110px;
+  }
+  .titleList {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .listItem {
+    width: 305px;
+  }
+  .list {
+    font-size: 16px;
+    flex-direction: row;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .userCardBlock {
+    width: 520px;
+  }
+}

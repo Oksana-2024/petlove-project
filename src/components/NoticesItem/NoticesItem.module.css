@@ -84,7 +84,8 @@
   transition: background-color 0.3s var(--transition);
 }
 
-.heartIcon {
+.heartIcon,
+.trashIcon {
   fill: transparent;
   stroke: var(--third-color);
 }
@@ -114,9 +115,40 @@
   text-transform: none;
 }
 
+.buttonCenter {
+  max-width: 100% !important;
+}
+
 .popularity {
   color: var(--notice-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .image {
+    height: 178px;
+    width: 294px;
+  }
+
+  .price {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  .comment {
+    margin-bottom: 24px;
+  }
+
+  .button {
+    max-width: 260px;
+  }
+  .image {
+    height: 162px;
+    width: 314px;
+  }
 }
