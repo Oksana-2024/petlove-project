@@ -28,6 +28,7 @@
   --border-link-active: #f6b83d;
   --border-input: rgba(38, 38, 38, 0.15);
   --border-pagination: rgba(38, 38, 38, 0.2);
+  --border-li:1px solid rgba(38, 38, 38, 0.1);
   --red-icon: #f43f5e;
   --error: #ef2447;
   --success: #08aa83;

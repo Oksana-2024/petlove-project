@@ -3,6 +3,7 @@ import { type RouteObject } from "react-router-dom";
 import Layout from "../components/Layout";
 import MainPage from "../pages/MainPage/MainPage";
 import PrivateRoute from "../components/PrivatRoute";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 const Home = lazy(() => import("../pages/HomePage/HomePage"));
 const Register = lazy(() => import("../pages/RegisterPage/RegisterPage"));
@@ -10,8 +11,12 @@ const Login = lazy(() => import("../pages/LoginPage/LoginPage"));
 const News = lazy(() => import("../pages/NewsPage/NewsPage"));
 const Notices = lazy(() => import("../pages/NoticesPage/NoticesPage"));
 const Friends = lazy(() => import("../pages/OurFriendsPage/OurFriendsPage"));
-const Profile = lazy(() => import("../pages/ProfilePage/ProfilePage"));
+
 const AddPet = lazy(() => import("../pages/AddPetPage/AddPetPage"));
+const ViewedTab = lazy(() => import("../pages/ProfilePage/ViewedTab"));
+const MyFavoritesTab = lazy(
+  () => import("../pages/ProfilePage/MyFavoritesTab")
+);
 const NotFound = lazy(() => import("../pages/NotFoundPage/NotFounPage"));
 
 const routes: RouteObject[] = [
@@ -31,7 +36,14 @@ const routes: RouteObject[] = [
       {
         element: <PrivateRoute />,
         children: [
-          { path: "/profile", element: <Profile /> },
+          {
+            path: "/profile",
+            element: <ProfilePage />,
+            children: [
+              { index: true, element: <MyFavoritesTab /> },
+              { path: "viewed", element: <ViewedTab /> }, 
+            ],
+          },
           { path: "/add-pet", element: <AddPet /> },
         ],
       },

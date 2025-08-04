@@ -54,12 +54,23 @@ export const userUpdateSchema = object({
 });
 
 export const petValidationSchema = object({
-  name: string()
-    .min(2, "Minimum length is 2 characters")
-    .max(20, "Maximum length is 20 characters"),
-  title: string().max(50, "Maximum length is 50 characters"),
-  imgURL: string().regex(/^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/, "Image URL must end with .png, .jpg, .jpeg, .gif, .bmp, or .webp."),
-  species: string(),
-  birthday: string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  sex: string(),
+  name: string().nonempty("Name is required"),
+  title: string().nonempty("Title is required"),
+  imgURL: string()
+    .nonempty("Image URL is required")
+    .regex(
+      /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
+      "Image URL must end with .png, .jpg, .jpeg, .gif, .bmp, or .webp."
+    ),
+  species: object({
+    label: string().nonempty("Species is required"),
+    id: string().nonempty("Species is required"),
+  })
+    .nullable()
+    .refine((val) => !!val?.id, { message: "Species is required" }),
+  birthday: string().regex(
+    /^\d{4}-\d{2}-\d{2}$/,
+    "Birthday must be in DD-MM-YYYY format"
+  ),
+  sex: string().nonempty("Choose type of gender"),
 });

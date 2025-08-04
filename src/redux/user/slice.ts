@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   addFavoriteThunk,
+  addPets,
   currentUser,
+  deletePetById,
   getUser,
   loginThunk,
   logoutUserThunk,
@@ -114,15 +116,19 @@ const userSlice = createSlice({
         state.phone = payload.phone;
         state.token = payload.token;
         state.noticesFavorites = payload.noticesFavorites;
-        state.favorites = payload.noticesFavorites.map(
-          ({ _id }: { _id: string }) => _id
-        );
+        state.favorites = payload.noticesFavorites.map(({ _id }: IPet) => _id);
         state.noticesViewed = payload.noticesViewed;
         state.pets = payload.pets;
         state.isLoggedIn = true;
         state.isLoading = false;
       })
-      .addCase(getUser.rejected, handleRejected)
+      .addCase(getUser.rejected, (state, { payload }) => {
+        if (payload === 401) {
+          state.token = null;
+          state.isLoggedIn = false;
+          state.isLoading = false;
+        }
+      })
       .addCase(updateUser.pending, handlePending)
       .addCase(updateUser.fulfilled, (state, action) => {
         state.avatar = action.payload.avatar;
@@ -143,7 +149,19 @@ const userSlice = createSlice({
         state.isLoading = false;
         state.favorites = payload;
       })
-      .addCase(removeFavoriteThunk.rejected, handleRejected);
+      .addCase(removeFavoriteThunk.rejected, handleRejected)
+      .addCase(addPets.pending, handlePending)
+      .addCase(addPets.fulfilled, (state, { payload }) => {
+        state.pets = payload.pets;
+        state.isLoading = false;
+      })
+      .addCase(addPets.rejected, handleRejected)
+      .addCase(deletePetById.pending, handlePending)
+      .addCase(deletePetById.fulfilled, (state, { payload }) => {
+        state.pets = payload.pets;
+        state.isLoading = false;
+      })
+      .addCase(deletePetById.rejected, handleRejected);
   },
 });
 

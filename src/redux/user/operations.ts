@@ -6,6 +6,7 @@ import type { StoreType } from "../store";
 import type { RegisterCredentials } from "../../components/RegisterForm/RegisterForm";
 import type { ILoginForm } from "../../components/LoginForm/LoginForm";
 import type { IUpdateUser } from "../../components/ModalEditUser/ModalEditUser";
+import type { IPet } from "../../types/pets";
 
 export const registerThunk = createAsyncThunk(
   "user/register",
@@ -143,7 +144,7 @@ export const getUser = createAsyncThunk("user/full", async (_, thunkApi) => {
     }
 
     toast.error(message);
-    return thunkApi.rejectWithValue(message);
+    return thunkApi.rejectWithValue(status);
   }
 });
 
@@ -179,32 +180,61 @@ export const updateUser = createAsyncThunk(
   }
 );
 
-export const addPets = createAsyncThunk("pets/add", async (pet, thunkApi) => {
-  try {
-    const token = (thunkApi.getState() as StoreType).user.token;
-    const { data } = await createAxios(token).post(
-      "/users/current/pets/add",
-      pet
-    );
-    return data;
-  } catch (error) {
-    const status = (error as AxiosError).status;
-    const backendMessage = (error as AxiosError).message;
+export const addPets = createAsyncThunk(
+  "pets/add",
+  async (pet: IPet, thunkApi) => {
+    try {
+      const token = (thunkApi.getState() as StoreType).user.token;
+      const { data } = await createAxios(token).post(
+        "/users/current/pets/add",
+        pet
+      );
+      return data;
+    } catch (error) {
+      const status = (error as AxiosError).status;
+      const backendMessage = (error as AxiosError).message;
 
-    let message = "Something went wrong. Please try again later.";
+      let message = "Something went wrong. Please try again later.";
 
-    if (status === 400) {
-      message = backendMessage || "invalid request body";
-    } else if (status === 404) {
-      message = backendMessage || "Service not found";
-    } else if (status === 500) {
-      message = backendMessage || "Server error";
+      if (status === 400) {
+        message = backendMessage || "invalid request body";
+      } else if (status === 404) {
+        message = backendMessage || "Service not found";
+      } else if (status === 500) {
+        message = backendMessage || "Server error";
+      }
+      toast.error(message);
+      return thunkApi.rejectWithValue(message);
     }
-    toast.error(message);
-    return thunkApi.rejectWithValue(message);
   }
-});
+);
 
+export const deletePetById = createAsyncThunk(
+  "pets/remove",
+  async (_id: string, thunkApi) => {
+    try {
+      const token = (thunkApi.getState() as StoreType).user.token;
+      const { data } = await createAxios(token).delete(
+        `/users/current/pets/remove/${_id}`);
+      return data;
+    } catch (error) {
+      const status = (error as AxiosError).status;
+      const backendMessage = (error as AxiosError).message;
+
+      let message = "Something went wrong. Please try again later.";
+
+      if (status === 400) {
+        message = backendMessage || "invalid request body";
+      } else if (status === 404) {
+        message = backendMessage || "Service not found";
+      } else if (status === 500) {
+        message = backendMessage || "Server error";
+      }
+      toast.error(message);
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
 export const addFavoriteThunk = createAsyncThunk(
   "/favorites/add",
   async (_id: string, thunkAPI) => {

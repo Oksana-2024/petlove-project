@@ -120,7 +120,10 @@ const noticesSlice = createSlice({
       .addCase(
         getTypeThunk.fulfilled,
         (state, { payload }: { payload: string[] }) => {
-          state.species = payload.map((item) => ({ label: item, id: item }));
+          state.species = payload.map((item) => ({
+            label: item.charAt(0).toUpperCase() + item.slice(1),
+            id: item,
+          }));
           state.isLoading = false;
         }
       )

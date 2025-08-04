@@ -10,7 +10,7 @@ function useMedia() {
     query: "(max-width: 1279px)",
   });
   const isBigScreen = useMediaQuery({
-    query: "(min-width:1280px)",
+    query: "(min-width:768px)",
   });
 
   return { isMobile, isTablet, isDesktop, isSmallScreen, isBigScreen };
