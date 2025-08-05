@@ -5,6 +5,9 @@
   flex-direction: column;
   gap: 24px;
 }
+.newsItem{
+  height: auto;
+}
 
 @media screen and (min-width: 768px) {
   .list {

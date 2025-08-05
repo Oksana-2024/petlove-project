@@ -35,6 +35,12 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
 @media screen and (min-width: 768px) {
   .img {

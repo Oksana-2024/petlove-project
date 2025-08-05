@@ -103,7 +103,11 @@ const NoticesItem = ({
         </li>
       </ul>
       <p className={s.comment}>{comment}</p>
-      {price && <p className={s.price}>${price}</p>}
+      {price ? (
+        <p className={s.price}>${price}</p>
+      ) : (
+        <p className={s.price}>$0</p>
+      )}
       <div className={s.buttonWrapper}>
         <BaseButton
           text="Learn more"

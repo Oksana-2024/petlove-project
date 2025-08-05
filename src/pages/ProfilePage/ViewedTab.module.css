@@ -31,4 +31,9 @@
   .viewedItem {
     width: 320px;
   }
+  .viewedList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: nowrap;
+  }
 }

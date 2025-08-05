@@ -143,7 +143,11 @@ const ModalNotice = ({ onClose, isOpen, _id }: IModalNotice) => {
         </li>
       </ul>
       <p className={s.comment}>{data?.comment}</p>
-      {data?.price && <p className={s.price}>${data?.price}</p>}
+      {data?.price ? (
+        <p className={s.price}>${data?.price}</p>
+      ) : (
+        <p className={s.price}>$0</p>
+      )}
       <div className={s.buttonWrapper}>
         <BaseButton
           text="Add to"

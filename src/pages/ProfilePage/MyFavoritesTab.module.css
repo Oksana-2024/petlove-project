@@ -47,4 +47,9 @@
   .favoriteItem {
     width: 320px;
   }
+  .favoriteList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: nowrap;
+  }
 }
