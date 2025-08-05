@@ -6,7 +6,7 @@ import s from "./OurFriendsPage.module.css";
 const OurFriendsPage = () => {
   return (
     <section className={s.friendPage}>
-      <Container>
+      <Container >
         <Title title="Our friends" className={s.title} />
         <FriendsList />
       </Container>

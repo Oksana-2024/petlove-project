@@ -11,7 +11,7 @@
   right: 12px;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.33333;
+  line-height: 1.33;
   letter-spacing: -0.02em;
   color: var(--third-color);
   background-color: var(--second-bg);
@@ -33,6 +33,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 194px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.nameLink {
+  color: var(--placeholder-color);
 }
 
 .title {
@@ -41,3 +50,15 @@
   line-height: 1.25;
   letter-spacing: -0.04em;
 }
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .workDay {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+

@@ -26,3 +26,18 @@
     gap: 20px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .itemFavorite,
+  .itemViewed {
+    width: 342px;
+  }
+
+  .item {
+    width: 363px;
+  }
+
+  .list {
+    gap: 32px;
+  }
+}

@@ -25,3 +25,13 @@
     margin-bottom: 0;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .titleBlock {
+    width: 100%;
+    gap: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+}

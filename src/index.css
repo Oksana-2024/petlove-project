@@ -60,6 +60,7 @@
   --border-link-header-active: rgba(255, 255, 255, 0.4);
   --logo-margin: 280px;
   --border-login-link: rgba(255, 255, 255, 0.4);
+  --container-padding:0 32px;
 }
 
 [data-theme="default"] {
@@ -82,6 +83,7 @@
   --border-link-header-active: #f6b83d;
   --logo-margin: 313px;
   --border-login-link: transparent;
+  --container-padding:0 63px 0 64px;
 }
 
 @font-face {

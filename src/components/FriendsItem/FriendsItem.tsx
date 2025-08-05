@@ -36,7 +36,7 @@ const FriendsItem = ({
         <address className={s.addressBox}>
           {email ? (
             <a className={s.link} href={`mailto:${email}`}>
-              <span> Email:</span> {email}
+              <span className={s.nameLink}> Email:</span> {email}
             </a>
           ) : (
             <a
@@ -45,7 +45,7 @@ const FriendsItem = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span> Email:</span> website only
+              <span className={s.nameLink}> Email:</span> website only
             </a>
           )}
           <a
@@ -54,15 +54,15 @@ const FriendsItem = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>Address:</span> {address ?? "website only"}
+            <span className={s.nameLink}>Address:</span> {address ?? "website only"}
           </a>
           {phone ? (
             <a className={s.link} href={`tel:${phone}`}>
-              <span> Phone:</span> {phone}
+              <span className={s.nameLink}> Phone:</span> {phone}
             </a>
           ) : (
             <p className={s.link}>
-              <span>Phone:</span> email only
+              <span className={s.nameLink}>Phone:</span> email only
             </p>
           )}
         </address>

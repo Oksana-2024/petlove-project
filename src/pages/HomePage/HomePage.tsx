@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <section className={s.page}>
-      <Container>
+      <Container >
         <div className={s.textWrapper}>
           <h1 className={s.title}>
             Take good <span className={s.accent}>care</span> of your small pets

@@ -27,3 +27,12 @@
     gap: 16px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .item {
+    width: 371px;
+  }
+  .list {
+    gap: 28px 20px;
+  }
+}

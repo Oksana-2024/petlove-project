@@ -37,6 +37,11 @@
   align-items: center;
 }
 
+.decor{
+  width: 100%;
+  border-bottom: var( --border-li);
+}
+
 @media screen and (min-width: 768px) {
   .formWrapper {
     flex-direction: row;

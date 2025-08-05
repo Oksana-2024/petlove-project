@@ -168,7 +168,7 @@ const NoticesFilters = () => {
                 },
               },
             }}
-          ></AutocompleteElement>
+          />
 
           <AutocompleteElement
             name="sex"
@@ -204,7 +204,7 @@ const NoticesFilters = () => {
                 },
               },
             }}
-          ></AutocompleteElement>
+          />
         </div>
         <AutocompleteElement
           name="species"
@@ -249,7 +249,7 @@ const NoticesFilters = () => {
               },
             },
           }}
-        ></AutocompleteElement>
+        />
 
         <AutocompleteElement
           name="locationId"
@@ -300,7 +300,8 @@ const NoticesFilters = () => {
               },
             },
           }}
-        ></AutocompleteElement>
+        />
+        <div className={s.decor}></div>
         <div className={s.radioWrapper}>
           <Controller
             name="byPopular"
