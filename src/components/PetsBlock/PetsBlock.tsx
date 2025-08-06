@@ -23,10 +23,12 @@ const PetsBlock = () => {
         style={s.logoutBtn}
         onClick={() => setIsLogout(true)}
       />
-      <ModalApproveAction
-        isOpen={isLogout}
-        onClose={() => setIsLogout(false)}
-      />
+      {isLogout && (
+        <ModalApproveAction
+          isOpen={isLogout}
+          onClose={() => setIsLogout(false)}
+        />
+      )}
     </div>
   );
 };

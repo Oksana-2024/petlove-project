@@ -64,13 +64,15 @@ const MobileMenu = ({ isOpen, onClose }: IMobileMenu) => {
             onClick={() => setIsApproveAction(true)}
           />
         ) : (
-          <AuthNav className={s.linkStyle}/>
+          <AuthNav className={s.linkStyle} />
         )}
       </div>
-      <ModalApproveAction
-        isOpen={isApproveAction}
-        onClose={() => setIsApproveAction(false)}
-      />
+      {isApproveAction && (
+        <ModalApproveAction
+          isOpen={isApproveAction}
+          onClose={() => setIsApproveAction(false)}
+        />
+      )}
     </div>
   );
 };

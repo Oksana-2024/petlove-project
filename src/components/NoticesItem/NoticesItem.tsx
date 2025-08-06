@@ -70,11 +70,23 @@ const NoticesItem = ({
 
   return (
     <>
-      <div className={s.imgWrapper}>
-        <img src={imgURL} alt={title} width={287} className={s.image} />
+      <div
+        className={clsx(
+          s.imgWrapper,
+          (isViewed || isFavoriteTab) && s.imgBoxViewed
+        )}
+      >
+        <img
+          src={imgURL}
+          alt={title}
+          width={287}
+          className={clsx(s.image, (isViewed || isFavoriteTab) && s.imgViewed)}
+        />
       </div>
       <div className={s.titleWrapper}>
-        <h3 className={s.title}>{title}</h3>
+        <h3 className={s.title} title={title}>
+          {title}
+        </h3>
         <div className={s.starWrapper}>
           <Icon name="icon-star" size={16} className={s.starIcon} />
           <p className={s.popularity}>{popularity}</p>
@@ -102,12 +114,14 @@ const NoticesItem = ({
           <p className={s.accent}>{category}</p>
         </li>
       </ul>
-      <p className={s.comment}>{comment}</p>
-      {price ? (
-        <p className={s.price}>${price}</p>
-      ) : (
-        <p className={s.price}>$0</p>
-      )}
+      <div className={s.commentAndPrice}>
+        <p className={s.comment}>{comment}</p>
+        {price ? (
+          <p className={s.price}>${price}</p>
+        ) : (
+          <p className={s.price}>$0</p>
+        )}
+      </div>
       <div className={s.buttonWrapper}>
         <BaseButton
           text="Learn more"
@@ -141,12 +155,16 @@ const NoticesItem = ({
             </button>
           ))}
       </div>
-      <ModalNotice
-        _id={_id}
-        isOpen={isOpenNotice}
-        onClose={() => setIsOpenNotice(false)}
-      />
-      <ModalAttention isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      {isOpenNotice && (
+        <ModalNotice
+          _id={_id}
+          isOpen={isOpenNotice}
+          onClose={() => setIsOpenNotice(false)}
+        />
+      )}
+      {isOpen && (
+        <ModalAttention isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      )}
     </>
   );
 };

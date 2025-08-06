@@ -42,11 +42,12 @@ const UserCard = () => {
           <li className={s.listItem}>{user.phone ? user.phone : "+380"}</li>
         </ul>
       </div>
-
-      <ModalEditUser
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-      />
+      {isEditModalOpen && (
+        <ModalEditUser
+          isOpen={isEditModalOpen}
+          onClose={() => setIsEditModalOpen(false)}
+        />
+      )}
     </div>
   );
 };

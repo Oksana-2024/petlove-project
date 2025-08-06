@@ -38,10 +38,12 @@ const UserNav = () => {
         </Link>
         {!isMobile && <p className={s.userName}>{user}</p>}
       </div>
-      <ModalApproveAction
-        isOpen={isLogout}
-        onClose={() => setIsLogout(false)}
-      />
+      {isLogout && (
+        <ModalApproveAction
+          isOpen={isLogout}
+          onClose={() => setIsLogout(false)}
+        />
+      )}
     </>
   );
 };
