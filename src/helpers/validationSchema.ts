@@ -70,7 +70,11 @@ export const petValidationSchema = object({
     .refine((val) => !!val?.id, { message: "Species is required" }),
   birthday: string().regex(
     /^\d{4}-\d{2}-\d{2}$/,
-    "Birthday must be in DD-MM-YYYY format"
+    "Birthday is required"
   ),
-  sex: string().nonempty("Choose type of gender"),
+  sex: string()
+    .nullable()
+    .refine((val) => val !== null && val !== "", {
+      message: "Choose type of gender",
+    }),
 });

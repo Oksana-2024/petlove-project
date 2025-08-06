@@ -25,8 +25,8 @@ import { InputAdornment } from "@mui/material";
 import BaseButton from "../BaseButton/BaseButton";
 import { Link, useNavigate } from "react-router-dom";
 import GenderRadioGroup from "./GenderRadioGroup";
-import s from "./AddPetForm.module.css";
 import useMedia from "../../hook/useMedia";
+import s from "./AddPetForm.module.css";
 
 export interface IAddPetForm {
   name: string;
@@ -72,6 +72,11 @@ const AddPetForm = () => {
     },
     "& .MuiOutlinedInput-notchedOutline": {
       border: "none",
+    },
+    "& .MuiFormHelperText-root": {
+      color: "var(--error)",
+      fontSize: "12px",
+      fontFamily: "var(--font-manrope)",
     },
   };
 
@@ -163,67 +168,69 @@ const AddPetForm = () => {
           />
 
           <div className={s.wrapperInput}>
-            <Controller
-              name="birthday"
-              control={context.control}
-              render={({ field }) => (
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    maxDate={dayjs()}
-                    value={field.value ? dayjs(field.value) : null}
-                    onChange={(date) => {
-                      field.onChange(dayjs(date).format("YYYY-MM-DD") ?? "");
-                    }}
-                    slotProps={{
-                      textField: {
-                        sx: {
-                          backgroundColor: "transparent",
-                          maxWidth: "144px",
-                          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                            {
-                              border: "1px solid var(--main-bg)",
+            <div className={s.datePickerBox}>
+              <Controller
+                name="birthday"
+                control={context.control}
+                render={({ field }) => (
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                      maxDate={dayjs()}
+                      value={field.value ? dayjs(field.value) : null}
+                      onChange={(date) => {
+                        field.onChange(dayjs(date).format("YYYY-MM-DD") ?? "");
+                      }}
+                      slotProps={{
+                        textField: {
+                          sx: {
+                            backgroundColor: "transparent",
+                            maxWidth: isBigScreen ? "210px" : "144px",
+                            "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                              {
+                                border: "1px solid var(--main-bg)",
+                              },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                              border: "1px solid var(--border-input)",
                             },
-                          "& .MuiOutlinedInput-notchedOutline": {
-                            border: "1px solid var(--border-input)",
+                            "& .MuiInputBase-root": {
+                              borderRadius: "30px",
+                              fontSize: isBigScreen ? "16px" : "14px",
+                              fontWeight: 500,
+                              fontFamily: "var(--font-manrope)",
+                              lineHeight: isBigScreen ? "1.25" : "1.29",
+                              letterSpacing: "-0.03em",
+                            },
+                            "& .MuiInputBase-input": {
+                              padding: isBigScreen
+                                ? "14px 0 14px 14px"
+                                : "9px 0 9px 10px",
+                            },
+                            "& .MuiSvgIcon-root": {
+                              width: "18px",
+                              height: "18px",
+                            },
                           },
-                          "& .MuiInputBase-root": {
-                            borderRadius: "30px",
-                            fontSize: isBigScreen ? "16px" : "14px",
-                            fontWeight: 500,
-                            fontFamily: "var(--font-manrope)",
-                            lineHeight: isBigScreen ? "1.25" : "1.29",
-                            letterSpacing: "-0.03em",
-                          },
-                          "& .MuiInputBase-input": {
-                            padding: isBigScreen
-                              ? "14px 0 14px 14px"
-                              : "9px 0 9px 10px",
-                          },
-                          "& .MuiSvgIcon-root": {
-                            width: "18px",
-                            height: "18px",
-                          },
-                        },
 
-                        placeholder: "00.00.0000",
-                        InputProps: {
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <CalendarTodayIcon />
-                            </InputAdornment>
-                          ),
+                          placeholder: "00.00.0000",
+                          InputProps: {
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <CalendarTodayIcon />
+                              </InputAdornment>
+                            ),
+                          },
                         },
-                      },
-                    }}
-                  />
-                </LocalizationProvider>
+                      }}
+                    />
+                  </LocalizationProvider>
+                )}
+              />
+              {context.formState.errors.birthday && (
+                <span className={s.errorText}>
+                  {context.formState.errors.birthday.message}
+                </span>
               )}
-            />
-            {context.formState.errors.birthday && (
-              <span className={s.errorText}>
-                {context.formState.errors.birthday.message}
-              </span>
-            )}
+            </div>
 
             <AutocompleteElement
               name="species"
@@ -253,7 +260,7 @@ const AddPetForm = () => {
                     border: "1px solid var(--border-input)",
                   },
                   "& .MuiInputBase-root": {
-                    minWidth: "140px",
+                    minWidth: isBigScreen ? "210px" : "140px",
                     borderRadius: "30px",
                     backgroundColor: "transparent",
                     outline: "none",

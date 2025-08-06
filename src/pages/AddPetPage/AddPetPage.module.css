@@ -19,6 +19,7 @@
 
 @media screen and (min-width:1280px) {
   .petContainer{
+    padding: 0 32px;
     display: flex;
     flex-direction: row;
     gap: 32px;

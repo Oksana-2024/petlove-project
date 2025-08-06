@@ -41,7 +41,7 @@ const ModalWindow = ({
       <button className={s.closeBtn} onClick={closeModal} aria-label="Close">
         <Icon name="icon-close" size={16} className={s.closeIcon} />
       </button>
-      <div className={clsx(s.modal, className)}>{children}</div>
+      <div className={clsx(s.modal, className)}>{modalIsOpen && children}</div>
     </Modal>
   );
 };

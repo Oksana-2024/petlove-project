@@ -18,7 +18,10 @@ const UserCard = () => {
         </div>
         <div className={s.userIconWrapper}>
           {user.avatar ? (
-          <div>  <img width={94} src={user.avatar} className={s.avatarImg} /></div>
+            <div>
+              {" "}
+              <img width={94} src={user.avatar} className={s.avatarImg} />
+            </div>
           ) : (
             <Icon name="icon-user" className={s.userIcon} size={40} />
           )}
@@ -39,6 +42,7 @@ const UserCard = () => {
           <li className={s.listItem}>{user.phone ? user.phone : "+380"}</li>
         </ul>
       </div>
+
       <ModalEditUser
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}

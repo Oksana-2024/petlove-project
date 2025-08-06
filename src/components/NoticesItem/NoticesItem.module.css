@@ -1,10 +1,17 @@
 .image {
-  height: 128px;
   border-radius: 16px;
+  height: 128px;
+  object-position: center 30%;
+  object-fit: cover;
 }
 
 .imgWrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  height: 128px;
+  width: 287px;
   margin-bottom: 24px;
+  position: relative;
 }
 
 .title {
@@ -144,11 +151,25 @@
     margin-bottom: 24px;
   }
 
+  .imgWrapper {
+    width: 294px;
+    height: 178px;
+  }
+  .button {
+    width: 236px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .button {
     max-width: 260px;
   }
   .image {
     height: 162px;
     width: 314px;
+  }
+  .imgWrapper {
+    width: 314px;
+    height: 162px;
   }
 }

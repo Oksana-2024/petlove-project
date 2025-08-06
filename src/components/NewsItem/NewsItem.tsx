@@ -9,7 +9,7 @@ const NewsItem = ({ imgUrl, title, text, date, url }: INewsItem) => {
         className={s.img}
         src={imgUrl!}
         alt={title!}
-        width="100%"
+        width={335}
          />
       <h3 className={s.title}>{title}</h3>
    <div className={s.textBlock}>
