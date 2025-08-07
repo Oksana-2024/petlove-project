@@ -73,11 +73,12 @@ const ModalEditUser = ({ onClose, isOpen }: IModalEdirUser) => {
         onSubmit={handleSubmit(onUpdateUserSubmit)}
         className={s.editUserForm}
       >
-        <input {...register("avatar")} type="text" className={s.avatar} />
+        <input {...register("avatar")} type="text" className={s.avatar} placeholder="Enter URL"/>
         <div className={s.error}>
           {errors.avatar && <p>{errors.avatar.message}</p>}
         </div>
         <input
+        placeholder="Enter your name"
           className={clsx(s.textEdit, errors.name && s.invalid)}
           type="text"
           {...register("name", { required: true })}
@@ -86,6 +87,7 @@ const ModalEditUser = ({ onClose, isOpen }: IModalEdirUser) => {
           {errors.name && <p>{errors.name.message}</p>}
         </div>
         <input
+        placeholder="Enter your email"
           className={s.textEdit}
           type="email"
           {...register("email", { required: true })}
@@ -94,6 +96,7 @@ const ModalEditUser = ({ onClose, isOpen }: IModalEdirUser) => {
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <input
+        placeholder="+380"
           className={clsx(s.textEdit, errors.email && s.invalid)}
           type="tel"
           {...register("phone")}
