@@ -1,0 +1,95 @@
+.react-datepicker__header {
+  background-color: var(--modal-bg);
+  border-bottom: 1px solid var(--border-input);
+  border-radius: 14px 14px 0 0;
+  padding: 10px;
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  border-top-right-radius: 14px;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+  fill: none;
+}
+
+.react-datepicker-popper .react-datepicker__triangle {
+  stroke: none;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: var(--border-input);
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day--outside-month {
+  color: var(--main-color);
+}
+
+.react-datepicker {
+  font-family: var(--font-manrope);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  border: 1px solid var(--border-input);
+  border-radius: 14px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--main-bg);
+  border-radius: 100%;
+  color: var(--second-color);
+}
+
+.react-datepicker__navigation--next {
+  right: 6px;
+  top: 6px;
+}
+
+.react-datepicker__navigation-icon--previous::before {
+  right: -11px;
+  top: 11px;
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--main-bg) !important;
+  color: var(--second-color);
+  border-radius: 100% !important;
+}
+
+.react-datepicker__navigation--next:hover {
+  stroke: var(--main-bg);
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: var(--main-bg);
+}
+
+.react-datepicker__input-container input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.react-datepicker__input-container input:focus-visible {
+  border: 1px solid var(--main-bg);
+}
+.react-datepicker__input-container input {
+  border: 1px solid var(--border-input);
+  border-radius: 30px;
+  padding: 9px 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  width: 144px;
+}
+
+@media screen and (min-width: 768px) {
+  .react-datepicker__input-container input {
+    width: 210px;
+    line-height: 1.25;
+    font-size: 16px;
+    padding: 14px;
+  }
+}

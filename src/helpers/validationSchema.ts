@@ -1,4 +1,4 @@
-import { object, string } from "zod";
+import { date, object, preprocess, string } from "zod";
 
 export const registerValidationSchema = object({
   name: string()
@@ -68,9 +68,12 @@ export const petValidationSchema = object({
   })
     .nullable()
     .refine((val) => !!val?.id, { message: "Species is required" }),
-  birthday: string().regex(
-    /^\d{4}-\d{2}-\d{2}$/,
-    "Birthday is required"
+  birthday: preprocess(
+    (val) =>
+      typeof val === "string" || val instanceof Date ? new Date(val) : val,
+    date().refine((val) => !!val, {
+      message: "Birthday is required",
+    })
   ),
   sex: string()
     .nullable()

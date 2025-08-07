@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import {
   AutocompleteElement,
   Controller,
@@ -6,11 +5,13 @@ import {
   TextFieldElement,
   useForm,
 } from "react-hook-form-mui";
+import dayjs from "dayjs";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { enGB } from "date-fns/locale/en-GB";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import Icon from "../Icon/Icon";
 import { petValidationSchema } from "../../helpers/validationSchema";
 
@@ -19,14 +20,16 @@ import { addPets } from "../../redux/user/operations";
 import type { IPet } from "../../types/pets";
 import { useSelector } from "react-redux";
 import { selectSpecies } from "../../redux/notices/selectors";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-import { InputAdornment } from "@mui/material";
 import BaseButton from "../BaseButton/BaseButton";
 import { Link, useNavigate } from "react-router-dom";
 import GenderRadioGroup from "./GenderRadioGroup";
 import useMedia from "../../hook/useMedia";
+import DatePicker, { registerLocale } from "react-datepicker";
+import "./datePicker.css";
 import s from "./AddPetForm.module.css";
+
+registerLocale("en-GB", enGB);
 
 export interface IAddPetForm {
   name: string;
@@ -100,6 +103,7 @@ const AddPetForm = () => {
       addPets({
         ...data,
         species: data.species?.id as never,
+        birthday: dayjs(data.birthday).format("YYYY-MM-DD"),
       })
     )
       .unwrap()
@@ -173,63 +177,30 @@ const AddPetForm = () => {
                 name="birthday"
                 control={context.control}
                 render={({ field }) => (
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      maxDate={dayjs()}
-                      value={field.value ? dayjs(field.value) : null}
-                      onChange={(date) => {
-                        field.onChange(dayjs(date).format("YYYY-MM-DD") ?? "");
-                      }}
-                      slotProps={{
-                        textField: {
-                          sx: {
-                            backgroundColor: "transparent",
-                            maxWidth: isBigScreen ? "210px" : "144px",
-                            "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                              {
-                                border: "1px solid var(--main-bg)",
-                              },
-                            "& .MuiOutlinedInput-notchedOutline": {
-                              border: "1px solid var(--border-input)",
-                            },
-                            "& .MuiInputBase-root": {
-                              borderRadius: "30px",
-                              fontSize: isBigScreen ? "16px" : "14px",
-                              fontWeight: 500,
-                              fontFamily: "var(--font-manrope)",
-                              lineHeight: isBigScreen ? "1.25" : "1.29",
-                              letterSpacing: "-0.03em",
-                            },
-                            "& .MuiInputBase-input": {
-                              padding: isBigScreen
-                                ? "14px 0 14px 14px"
-                                : "9px 0 9px 10px",
-                            },
-                            "& .MuiSvgIcon-root": {
-                              width: "18px",
-                              height: "18px",
-                            },
-                          },
-
-                          placeholder: "00.00.0000",
-                          InputProps: {
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                <CalendarTodayIcon />
-                              </InputAdornment>
-                            ),
-                          },
-                        },
-                      }}
-                    />
-                  </LocalizationProvider>
+                  <DatePicker
+                    locale="en-GB"
+                    maxDate={new Date()}
+                    selected={field.value.toString() as unknown as Date}
+                    dateFormat="dd.MM.yyyy"
+                    className={s.datePicker}
+                    placeholderText="Birthday"
+                    onChange={(date) => {
+                      if (date instanceof Date && !isNaN(date.getTime())) {
+                        field.onChange(date.toISOString().split("T")[0]); // YYYY-MM-DD
+                      } else {
+                        field.onChange("");
+                      }
+                    }}
+                  />
                 )}
               />
+
               {context.formState.errors.birthday && (
                 <span className={s.errorText}>
                   {context.formState.errors.birthday.message}
                 </span>
               )}
+              <Icon name="icon-calendar" size={18} className={s.iconCalendar} />
             </div>
 
             <AutocompleteElement
