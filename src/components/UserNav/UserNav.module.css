@@ -7,6 +7,7 @@
   background-color: var(--bg-logout);
   transition: background-color 0.3s var(--transition);
   width: 136px;
+  text-transform: uppercase;
 }
 
 .logoutBtn:hover {

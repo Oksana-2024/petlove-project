@@ -24,7 +24,7 @@
   background-color: var(--modal-bg);
   border-radius: 30px;
   padding: 20px;
-  width: 89%;
+  width: auto;
   height: auto;
   overflow-y: auto;
   opacity: 0;
@@ -64,14 +64,3 @@
   align-items: center;
 }
 
-@media screen and (min-width:678px) {
-  .modalBase{
-     width: 48%;
-  }
-}
-
-@media screen and (min-width:1280px) {
-  .modalBase{
-     width:30%;
-  }
-}

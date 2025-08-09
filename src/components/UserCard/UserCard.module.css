@@ -41,7 +41,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 20px 144px;
+  padding: 18px 20px 98px;
   position: relative;
 }
 
@@ -58,13 +58,6 @@
 .editIcon {
   fill: none;
   stroke: var(--main-bg);
-}
-
-.userIconWrapper {
-  position: absolute;
-  top: 56px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .titleList {
@@ -102,7 +95,30 @@
   width: 94px;
 }
 
+.uploadBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translate(-20%, 76px);
+
+  align-items: center;
+  justify-content: center;
+}
+
+.textUpload {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 768px) {
+  .textUpload {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
   .userBlockWrapper {
     padding: 40px 40px 100px 40px;
   }

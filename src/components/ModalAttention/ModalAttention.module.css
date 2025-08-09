@@ -33,6 +33,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 11.5px;
+  padding-right: 11.5px;
 }
 
 .loginLink,
@@ -57,4 +59,26 @@
 .loginLink {
   color: var(--second-color);
   background-color: var(--main-bg);
+}
+
+.modal {
+  padding: 0;
+  width: 260px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 40px;
+    width: 426px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .loginLink,
+  .registerLink {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }

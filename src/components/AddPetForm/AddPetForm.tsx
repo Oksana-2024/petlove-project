@@ -6,27 +6,27 @@ import {
   useForm,
 } from "react-hook-form-mui";
 import dayjs from "dayjs";
+import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import DatePicker, { registerLocale } from "react-datepicker";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 import { enGB } from "date-fns/locale/en-GB";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import Icon from "../Icon/Icon";
+import type { IPet } from "../../types/pets";
 import { petValidationSchema } from "../../helpers/validationSchema";
-
+import { uploadImageToCloudinary } from "../../service/api";
+import useMedia from "../../hook/useMedia";
 import { useAppDispatch } from "../../hook/useDispatch";
 import { addPets } from "../../redux/user/operations";
-import type { IPet } from "../../types/pets";
-import { useSelector } from "react-redux";
 import { selectSpecies } from "../../redux/notices/selectors";
 
-import BaseButton from "../BaseButton/BaseButton";
-import { Link, useNavigate } from "react-router-dom";
 import GenderRadioGroup from "./GenderRadioGroup";
-import useMedia from "../../hook/useMedia";
-import DatePicker, { registerLocale } from "react-datepicker";
+import Icon from "../Icon/Icon";
+import BaseButton from "../BaseButton/BaseButton";
 import "./datePicker.css";
+
 import s from "./AddPetForm.module.css";
 
 registerLocale("en-GB", enGB);
@@ -41,6 +41,7 @@ export interface IAddPetForm {
 }
 
 const AddPetForm = () => {
+  const [imageUrl, setImageUrl] = useState("");
   const dispatch = useAppDispatch();
   const species = useSelector(selectSpecies);
   const navigate = useNavigate();
@@ -104,6 +105,7 @@ const AddPetForm = () => {
         ...data,
         species: data.species?.id as never,
         birthday: dayjs(data.birthday).format("YYYY-MM-DD"),
+        imgURL: imageUrl ?? data.imgURL,
       })
     )
       .unwrap()
@@ -112,6 +114,20 @@ const AddPetForm = () => {
         navigate("/profile");
       });
   };
+
+  const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const res = await uploadImageToCloudinary(file);
+      const uploadedUrl = res;
+      setImageUrl(uploadedUrl);
+      context.setValue("imgURL", uploadedUrl, { shouldValidate: true });
+    } catch (err) {
+      console.error("Upload error", err);
+    }
+  };
+
   return (
     <div className={s.petFormWrapper}>
       <h2 className={s.title}>
@@ -146,13 +162,65 @@ const AddPetForm = () => {
         </div>
 
         <div className={s.formInputWrapper}>
-          <TextFieldElement
-            name="imgURL"
-            placeholder="Enter URL"
-            className={s.inputAddPet}
-            type="text"
-            sx={inputStyle}
-          />
+          <div className={s.uploadBox}>
+            <TextFieldElement
+              name="imgURL"
+              placeholder="Enter URL"
+              className={s.inputAddPet}
+              type="text"
+              sx={{
+                width: isBigScreen ? "278px" : "170px",
+                padding: 0,
+                "& .MuiFormControl-root": {
+                  border: "none",
+                },
+                "& .MuiInputBase-root": {
+                  border: "1px solid var(--border-input)",
+                  borderRadius: "30px",
+                  "&:has(input:focus)": {
+                    border: "1px solid var(--main-bg)",
+                  },
+                  "& input": {
+                    fontFamily: "var(--font-manrope)",
+                    fontWeight: 500,
+                    fontSize: isBigScreen ? "16px" : "14px",
+                    lineHeight: isBigScreen ? "1.25" : "1.29",
+                    letterSpacing: "-0.03em",
+                  },
+                  "& input::placeholder": {
+                    color: "var(--placeholder-color)",
+                    opacity: 0.9,
+                  },
+                },
+                "& .MuiOutlinedInput-input": {
+                  border: "none",
+                  padding: isBigScreen ? "14px" : "9px 10px",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                },
+                "& .MuiFormHelperText-root": {
+                  color: "var(--error)",
+                  fontSize: "12px",
+                  fontFamily: "var(--font-manrope)",
+                },
+              }}
+            />
+            <label className={s.uploadLabel}>
+              Upload photo
+              <Icon
+                name="icon-upload-cloud"
+                size={16}
+                className={s.uploadIcon}
+              />
+              <input
+                name="upload"
+                className={s.uploadInput}
+                type="file"
+                onChange={handleUpload}
+              />
+            </label>
+          </div>
 
           <TextFieldElement
             type="text"
@@ -231,7 +299,7 @@ const AddPetForm = () => {
                     border: "1px solid var(--border-input)",
                   },
                   "& .MuiInputBase-root": {
-                    minWidth: isBigScreen ? "210px" : "140px",
+                    width: isBigScreen ? "210px" : "143px",
                     borderRadius: "30px",
                     backgroundColor: "transparent",
                     outline: "none",

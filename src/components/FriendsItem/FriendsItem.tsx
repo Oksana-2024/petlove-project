@@ -26,7 +26,7 @@ const FriendsItem = ({
 
   return (
     <>
-      {getTodayWorkHours(workDays)}
+    <div className={s.workDayBox}>  {getTodayWorkHours(workDays)}</div>
 
       <div className={s.imgWrapper}>
         <img src={imageUrl} alt="Logo" width={80} height={80} />

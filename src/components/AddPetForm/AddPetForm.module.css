@@ -137,8 +137,8 @@
   display: flex;
   flex-direction: row;
   align-items: start;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .formInputWrapper {
@@ -192,6 +192,37 @@
   pointer-events: none;
 }
 
+.uploadLabel {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  background-color: var(--second-bg);
+  border-radius: 30px;
+  width: 117px;
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadIcon {
+  stroke: var(--main-bg);
+  fill: none;
+}
+
+.uploadInput {
+  display: none;
+}
+
+.uploadBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 768px) {
   .linkBtn {
     width: 170px;
@@ -239,6 +270,16 @@
     height: 86px;
     transform: translateY(-26px);
     margin-bottom: -12px;
+  }
+  .uploadLabel {
+    font-size: 14px;
+    line-height: 1.29;
+    width: 146px;
+    height: 51px;
+  }
+  .uploadBox {
+    gap: 8px;
+    justify-content: start;
   }
 }
 

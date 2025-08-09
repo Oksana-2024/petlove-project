@@ -16,16 +16,22 @@ const UserCard = () => {
           <span className={s.text}>User</span>
           <Icon name="icon-user" size={18} className={s.littleUserIcon} />
         </div>
-        <div className={s.userIconWrapper}>
+
+        <div className={s.uploadBox}>
           {user.avatar ? (
-            <div>
-              {" "}
+            <>
               <img width={94} src={user.avatar} className={s.avatarImg} />
-            </div>
+            </>
           ) : (
-            <Icon name="icon-user" className={s.userIcon} size={40} />
+            <>
+              <div className={s.userIconWrapper}>
+                <Icon name="icon-user" className={s.userIcon} size={40} />
+              </div>
+              <p className={s.textUpload}>Upload photo</p>
+            </>
           )}
         </div>
+
         <button
           type="button"
           className={s.editIconWrapper}

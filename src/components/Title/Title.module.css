@@ -10,3 +10,11 @@
     font-size: 54px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+    text-align: start;
+  }
+}

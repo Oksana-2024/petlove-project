@@ -58,6 +58,8 @@
   }
 
   .headerWrapper {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
     padding: var(--header-padding-tablet);
   }
 

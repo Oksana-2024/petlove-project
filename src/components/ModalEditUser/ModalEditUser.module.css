@@ -3,12 +3,15 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
   font-size: 20px;
   line-height: 1;
   margin-bottom: 20px;
+  margin-right: auto;
 }
 
 .avatarWrapper {
@@ -57,4 +60,59 @@
 
 .invalid {
   border: 1px solid var(--error);
+}
+
+.uploadLabel {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.uploadInput {
+  display: none;
+}
+
+.modalStyles {
+  width: 260px;
+  padding: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .uploadLabel {
+    font-weight: 500;
+    text-decoration: none;
+    background-color: var(--second-bg);
+    border-radius: 30px;
+    width: 146px;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .uploadIcon {
+    stroke: var(--main-bg);
+    fill: none;
+  }
+
+  .modalStyles {
+    width: 440px;
+    padding: 30px;
+  }
+
+  .uploadBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .uploadBox .textEdit {
+    width: 226px;
+  }
 }

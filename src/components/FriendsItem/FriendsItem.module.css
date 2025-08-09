@@ -5,21 +5,20 @@
 }
 
 .workDay {
-  border-radius: 30px;
-  position: absolute;
-  top: 12px;
-  right: 12px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
   color: var(--third-color);
+}
+
+.workDayBox {
+  border-radius: 30px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
   background-color: var(--second-bg);
-  width: 90px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 8px;
 }
 
 .wrapper {
@@ -61,4 +60,3 @@
     line-height: 1.29;
   }
 }
-

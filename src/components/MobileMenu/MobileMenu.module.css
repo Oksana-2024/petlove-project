@@ -66,6 +66,7 @@
   color: var(--color-logout);
   transition: background-color 0.3s var(--transition);
   background-color: var(--bg-logout);
+  text-transform: uppercase;
 }
 
 .logoutBtn:hover {

@@ -12,6 +12,9 @@
 .logoutModal {
   display: flex;
   flex-direction: column;
+  padding: 20px 8px;
+  width: 260px;
+  overflow: hidden;
 }
 
 .buttonWrapper {
@@ -40,4 +43,15 @@
 .cancelBtn:hover {
   background-color: var(--placeholder-color);
   color: var(--second-color);
+}
+
+@media screen and (min-width: 768px) {
+  .logoutModal {
+    padding: 60px;
+    width: 428px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 }
