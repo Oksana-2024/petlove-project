@@ -87,5 +87,6 @@
   }
   .notFound {
     height: calc(100dvh - 144px);
+    border-radius: 60px;
   }
 }
