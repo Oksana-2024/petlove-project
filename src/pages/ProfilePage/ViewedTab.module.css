@@ -16,7 +16,27 @@
   background-color: var(--form-bg);
 }
 
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 140px;
+}
+
+.textAccent {
+  font-weight: 700;
+  color: var(--third-color);
+}
+
 @media screen and (min-width: 768px) {
+  .text {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
   .viewedItem {
     padding: 14px;
     width: 342px;
